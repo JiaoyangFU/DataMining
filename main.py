@@ -85,44 +85,36 @@ def main(argv):
     # set necessary parameters
 	review_minimum_num = 30
 	test_percentage = 0.2 # percentage of test data in all data set
-	training_percentage = 0.9 # percentage of actual training set in all training data 
-	data_size = 'Small'
-	training_method = 'SVD' # random, CF, SVD, CBCF, WBCF
-	pick_test_data = False
-	savefile = False
+	#training_percentage = 0.9 # percentage of actual training set in all training data 
+
+	#training_method = 'SVD' # random, CF, SVD, CBCF, WBCF
+
 	print "review_minimum_num:", review_minimum_num
 	print "test_percentage:", test_percentage
 	print "training_percentage:", training_percentage
 	print "data_size:", data_size
 	print "pick_test_data:", pick_test_data
 	# initialize variable    
-	#random evaluation
-	if training_method == 'random':
-	    print "calculating random rmse..."
-	    random.seed()
-	    random_evaluations = random_evaluating(test_user_data)
-	    random_rmse = cal_rmse(random_evaluations)
-	    print "final total CF rmse for the test data is:", random_rmse
-	    return
-	# other methods: initialize data set
-	user_indexed_reviews = dict()  # user -> review
-	restaurant_indexed_reviews = dict()  # {'business id': {'user':[review]}}, where review is a dict {'text':"It is good. "}
-	smalldf = loadData.Parser()
+	"""Store data into two dictionary"""
+	user_indexed_reviews = dict()  # {user_id: {business_id: rating}
+	restaurant_indexed_reviews = dict()  # {business_id: {user_id :rating}}
+	smalldf = loadData.Parser() #load data from json file
 	# build reviews that can be indexed from both user_id and restaurant_id 
 	print "building indexed dictionaries..."
 	build_user_and_restaurant_indexed_reviews(smalldf, user_indexed_reviews, restaurant_indexed_reviews)   
 	print "setting data for test purposes..."
+	#extract users with more than review_minimum_num reviews
 	test_user_set = get_test_users(user_indexed_reviews, review_minimum_num)
-	#print "test_user_set number:",len(test_user_set)
+	#extract test data from orignal dataset
 	test_user_data = get_tests_and_update_reviews(user_indexed_reviews, restaurant_indexed_reviews, test_user_set, test_percentage)
 	print "total number of users in test_user_data:", len(test_user_data)
-	#update_training_set(user_indexed_reviews, restaurant_indexed_reviews, training_percentage)
 	print "total number of users in training data:", len(user_indexed_reviews)
 	print "total number of restaurants in training data:", len(restaurant_indexed_reviews)
 
 	"""user_indexed_reviews: training dataset
 	   test_user_data: test dataset
 	"""
+	#baseline prediction and evaluation
 	base_evaluation = baseline.base_evaluating(test_user_data, user_indexed_reviews, restaurant_indexed_reviews)
 	base_rmse = evaluation.calRMSE(base_evaluation)
 	print "baseline rmse for test data is:", base_rmse

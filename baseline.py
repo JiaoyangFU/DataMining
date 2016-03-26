@@ -22,7 +22,7 @@ def base_evaluating(test_user_data, user_indexed_reviews, restaurant_indexed_rev
 
 def cal_average_rating(user_indexed_reviews):
     """
-    for a given user, calculate this user's average rating for all the reviews in user_indexed_reviews table
+    calculate average rating for the whole training dataset
     """
     total = 0.
     count = 0
@@ -33,6 +33,9 @@ def cal_average_rating(user_indexed_reviews):
     return total/count
 
 def cal_user_avg(user_indexed_reviews):
+	"""
+	calculate average rating of each user
+	"""
 	user_avg = dict()
 	for user in user_indexed_reviews:
 		total = 0.
@@ -44,6 +47,9 @@ def cal_user_avg(user_indexed_reviews):
 	return user_avg
 
 def cal_restaurant_avg(restaurant_indexed_reviews):
+	"""
+	calculate average rating of each restaurant
+	"""
 	biz_avg = dict()
 	for restaurant in restaurant_indexed_reviews:
 		total = 0.
