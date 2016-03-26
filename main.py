@@ -91,9 +91,9 @@ def main(argv):
 
 	print "review_minimum_num:", review_minimum_num
 	print "test_percentage:", test_percentage
-	print "training_percentage:", training_percentage
-	print "data_size:", data_size
-	print "pick_test_data:", pick_test_data
+	#print "training_percentage:", training_percentage
+	#print "data_size:", data_size
+	#print "pick_test_data:", pick_test_data
 	# initialize variable    
 	"""Store data into two dictionary"""
 	user_indexed_reviews = dict()  # {user_id: {business_id: rating}
