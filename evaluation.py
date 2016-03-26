@@ -1,8 +1,8 @@
-import numpy
+import numpy as np
 import math
+import csv
 
 def calRMSE(prediction):	#prediction:{(uid, bid):(predict_value, true_value)}
-
 	rmse = 0.
 	count = 0
 	for pair in prediction:
@@ -10,7 +10,6 @@ def calRMSE(prediction):	#prediction:{(uid, bid):(predict_value, true_value)}
 		(predict, ture) = prediction[pair]
 		rmse += (predict - ture) ** 2
 		count += 1
-
 	rmse = np.sqrt(rmse/count)
 	return rmse
 

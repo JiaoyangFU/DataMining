@@ -1,11 +1,11 @@
 import json
 import pandas as pd
 import numpy as np
-from matplotlib import pyplot as plt
 
-def loadData():
-	#filepath = '/Users/Stella/Documents/yelp/data/yelp_training_set_'
-	filepath = '/Users/Stella/Documents/yelp/data/yelp_academic_dataset_'
+
+def Parser():
+	filepath = '/Users/Stella/Documents/yelp/data/yelp_training_set_'
+	#filepath = '/Users/Stella/Documents/yelp/data/yelp_academic_dataset_'
 	with open(filepath + 'review.json') as f:
 	    reviews = pd.DataFrame(json.loads(line) for line in f)
 
@@ -22,7 +22,7 @@ def loadData():
 	restaurant = business.iloc[ind]
 
 	business1 = restaurant[(business.city == "Phoenix")][['business_id', 'name', 'stars', 'review_count', 'city','categories']]
-
+	business1 = restaurant[['business_id', 'name', 'stars', 'review_count', 'city','categories']]
 	#business1 = restaurant[(business.city == "Las Vegas")][['business_id', 'name', 'stars', 'review_count', 'city','categories']]
 	reviews1 = reviews[['business_id', 'user_id', 'stars', 'review_id']]
 	users1 = users[['user_id', 'name', 'review_count', 'average_stars']]
@@ -43,9 +43,11 @@ def loadData():
 	dataFrame.to_csv('inputData2.csv', sep='\t', encoding='utf-8')
 
 	small = recompute_frame(dataFrame)
-	small = small[(small.user_review_count > 20) & (small.business_review_count > 50)]
+	small = small[(small.business_review_count > 50)]
 	smalldf = recompute_frame(small)
 	smalldf.to_csv('small.csv',  sep='\t', encoding='utf-8')
+
+	return smalldf
 
 def recompute_frame(ldf):
     ldfu=ldf.groupby('user_id')
@@ -65,9 +67,8 @@ def recompute_frame(ldf):
     nldf.reset_index(inplace=True)
     return nldf
 
-
-
 def explData():
+	from matplotlib import pyplot as plt
 	dataFrame = pd.read_csv('inputData2.csv',sep='\t')
 	urc=dataFrame.groupby('user_id').review_id.count()
 	ax=urc.hist(bins=50, log=True)
@@ -88,7 +89,12 @@ def explData():
 	plt.title("Star ratings over all reviews");
 	plt.savefig('Overall Star Rating2.png')
 
+	urc = dataFrame.groupby('city').review_id.count()
+	urc.columns = ['city','count']
+	urc.sort_values(by = 'count', ascending = False)
+	city = urc.head(10)
+	colors  = ["coral","blue", "yellow","green","pink"]
+	city.plot(kind='pie',label='city',colors=colors,explode=(0.1, 0, 0, 0, 0),autopct='%1.1f%%', shadow=True)
+	plt.title("Top five cities");
+	plt.savefig('Top five cities2.png')
 
-if __name__ == '__main__':
-	loadData()
-	explData()
