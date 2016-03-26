@@ -21,8 +21,8 @@ def Parser():
 			ind.append(i)
 	restaurant = business.iloc[ind]
 
-	business1 = restaurant[(business.city == "Phoenix")][['business_id', 'name', 'stars', 'review_count', 'city','categories']]
-	business1 = restaurant[['business_id', 'name', 'stars', 'review_count', 'city','categories']]
+	business1 = restaurant[restaurant.city == "Phoenix"][['business_id', 'name', 'stars', 'review_count', 'city','categories']]
+	#business1 = restaurant[['business_id', 'name', 'stars', 'review_count', 'city','categories']]
 	#business1 = restaurant[(business.city == "Las Vegas")][['business_id', 'name', 'stars', 'review_count', 'city','categories']]
 	reviews1 = reviews[['business_id', 'user_id', 'stars', 'review_id']]
 	users1 = users[['user_id', 'name', 'review_count', 'average_stars']]
