@@ -125,11 +125,9 @@ def main(argv):
     print "total number of users in test_user_data:", len(test_user_data)
     number_of_users = len(user_indexed_reviews)
     number_of_restaurants = len(restaurant_indexed_reviews)
-    print "total number of users in training data:", len(user_indexed_reviews)
-    print "total number of restaurants in training data:", len(restaurant_indexed_reviews)
 
     # svd method
-    svd_method = Matrix_Factorization.svd(number_of_users, number_of_restaurants, user_indexed_reviews)
+    svd_method = Matrix_Factorization.svd(number_of_users, number_of_restaurants, user_indexed_reviews, 20, test_user_data)
     svd_rmse = evaluation.calRMSE(svd_method)
     print "SVD rmse for test data is:", svd_rmse
 
