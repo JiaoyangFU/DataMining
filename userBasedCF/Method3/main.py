@@ -127,8 +127,8 @@ def main(argv):
     
     print evaluationMap
 
-    fileName2="evaluationMap2.csv"
-    w = csv.writer(open(fileName2, "w"))
+    fileName="evaluationMap3.csv"
+    w = csv.writer(open(fileName, "w"))
     w.writerow(["k", ["CF_rmse","CF_mae"]])
 
     for key, val in evaluationMap.items():

@@ -46,21 +46,25 @@ def pearsonSimilarity(user_i, user_j, user_dict):
     for item in user_dict[user_i]:
         if item in  user_dict[user_j]:
             commonItemList.append(item)
-
-    if len(commonItemList) == 0:
-        return 0
-
-    sumxx,sumyy,sumxy=0.0, 0.0, 0.0
-
-    sumxx = sum([pow(user_dict[user_i][item],2) for item in user_dict[user_i]])
-    sumyy = sum([pow(user_dict[user_j][item],2) for item in user_dict[user_j]])
-    sumxy = sum([user_dict[user_i][item] * user_dict[user_j][item] for item in commonItemList] )
-
-    if abs(sumxx) <=0.000000001 or  abs(sumyy) <=0.000000001 or abs(sumxy) <=0.000000001:
+    N = len(commonItemList)
+    if N == 0:
         return 0
     
-    return sumxy/(math.sqrt(sumxx) * math.sqrt(sumyy))
-    
+    sum1 = sum([float(user_dict[user_i][item]) for item in commonItemList])
+    sum2 = sum([float(user_dict[user_j][item]) for item in commonItemList])
+    square_sum1 = sum([pow(user_dict[user_i][item],2) for item in commonItemList])
+    square_sum2 = sum([pow(user_dict[user_j][item],2) for item in commonItemList])
+
+    product_sum = sum([user_dict[user_i][item]* user_dict[user_i][item] for item in commonItemList])
+
+    numerator = product_sum- (sum1 * sum2/N)
+    denominator = math.sqrt((square_sum1- pow(sum1,2)/N )*(square_sum2- pow(sum2,2)/N))
+
+    if denominator==0:
+        return 0
+
+    return numerator/denominator
+
 
 
 def topMatches(user_dict,user_to_predict,k,similarity=pearsonSimilarity):
