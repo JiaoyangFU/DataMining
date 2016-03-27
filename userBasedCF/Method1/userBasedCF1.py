@@ -27,7 +27,7 @@ userNeighborMap = {} # store the Neighbors list for the given user in decending 
 predictionMap = {} # store prediction for uer u's preference for an item i= > {(userId,itemId): prediction}
 predictionRealMap = {} # {(uid, bid):(predict_value, true_value)}
 
-dataFrame = pd.read_csv('/Users/fujiaoyang1/DataMining/small.csv',sep='\t')
+dataFrame = pd.read_csv('../../small.csv',sep='\t')
 newdf = dataFrame[['user_id','business_id','stars','user_avg']]
 
 userCnt=newdf.user_id.nunique() # the totoal number of users => 495
@@ -209,10 +209,8 @@ def main():
     #storeContents(userNeighborMap,"userNeighborMap")
     
     similarityThreshold=0
-    kStart=20
-    kEnd=51
-    kStep=5
-    for k in range(kStart,kEnd,kStep):
+    stepList=[5,10,20,50,100,150]
+    for k in stepList:
         computingPrediction(k,similarityThreshold)
         #fileName1="userBasedCFRating" + str(k)
         #storeContents(predictionMap,fileName1)
@@ -221,8 +219,7 @@ def main():
         MAE =calMAE(predictionRealMap)
         evaluationMap[k]=[RMSE,MAE]
     
-    fileName2="evaluationMap"
-    storeContents(evaluationMap,fileName2)
+    storeContents(evaluationMap,"evaluationMap1")
 
 # function main END
 
