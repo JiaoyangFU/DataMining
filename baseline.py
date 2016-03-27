@@ -17,7 +17,7 @@ def base_evaluating(test_user_data, user_indexed_reviews, restaurant_indexed_rev
 			true = rating
 			pair = (user, restaurant)
 			prediction = avg_star + (bstars - avg_star) + (ustars - avg_star)
-			evaluations[pair] = (true, prediction)
+			evaluations[pair] = (prediction, true)
 	return evaluations
 
 def cal_average_rating(user_indexed_reviews):
