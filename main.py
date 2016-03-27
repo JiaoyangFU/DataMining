@@ -119,5 +119,9 @@ def main(argv):
 	base_rmse = evaluation.calRMSE(base_evaluation)
 	print "baseline rmse for test data is:", base_rmse
 
+	CF_evaluations = itemBased.CF_evaluating(test_user_data, user_indexed_reviews, restaurant_indexed_reviews)
+	CF_rmse = evaluation.calRMSE(CF_evaluations)
+	print "Item-based CF rmse for test data is:",CF_rmse
+
 if __name__ == '__main__':
     main(sys.argv)
