@@ -4,7 +4,7 @@ import numpy as np
 
 
 def Parser():
-	filepath = '/Users/Stella/Documents/yelp/data/yelp_training_set_'
+	filepath = './data/yelp_training_set_'
 	#filepath = '/Users/Stella/Documents/yelp/data/yelp_academic_dataset_'
 	with open(filepath + 'review.json') as f:
 	    reviews = pd.DataFrame(json.loads(line) for line in f)
@@ -14,8 +14,9 @@ def Parser():
 
 	with open(filepath + 'business.json') as f:
 	    business = pd.DataFrame(json.loads(line) for line in f)
-
+	
 	ind = []
+	print "finish loading data"
 	for i in range(len(business.categories)):
 		if 'Restaurants' in business[i:i+1].categories.to_string():
 			ind.append(i)
@@ -23,7 +24,7 @@ def Parser():
 
 	business1 = restaurant[restaurant.city == "Phoenix"][['business_id', 'name', 'stars', 'review_count', 'city','categories']]
 	#business1 = restaurant[['business_id', 'name', 'stars', 'review_count', 'city','categories']]
-	#business1 = restaurant[(business.city == "Las Vegas")][['business_id', 'name', 'stars', 'review_count', 'city','categories']]
+	#business1 = restaurant[restaurant.city == "Las Vegas"][['business_id', 'name', 'stars', 'review_count', 'city','categories']]
 	reviews1 = reviews[['business_id', 'user_id', 'stars', 'review_id']]
 	users1 = users[['user_id', 'name', 'review_count', 'average_stars']]
 	data = pd.merge(business1, reviews1, on = 'business_id', how = 'inner')
@@ -40,7 +41,7 @@ def Parser():
 	new_col[11] = 'user_avg'
 	dataFrame.columns = new_col
 
-	dataFrame.to_csv('inputData2.csv', sep='\t', encoding='utf-8')
+	dataFrame.to_csv('inputData.csv', sep='\t', encoding='utf-8')
 
 	small = recompute_frame(dataFrame)
 	small = small[(small.business_review_count > 50)]

@@ -2,10 +2,12 @@ import sys
 import loadData
 import baseline
 import evaluation
+import svd
+import itemBased
+import csv
 
 def build_user_and_restaurant_indexed_reviews(dataFrame, user_indexed_reviews, restaurant_indexed_reviews):
     """
-    all_reviews is a dictionary {(user_id, business) : [review]}
     user_indexed_reviews is a new review dictionary {user_id : {business_id : [review]}} that can be indexed by user_id
     restaurant_indexed_reviews is a new review dictionary {user_id : {business_id : [review]}} that can be indexed by restaurant_id
     """
@@ -83,45 +85,60 @@ def cal_average_rating(user_indexed_reviews):
 
 def main(argv):
     # set necessary parameters
-	review_minimum_num = 30
-	test_percentage = 0.2 # percentage of test data in all data set
-	#training_percentage = 0.9 # percentage of actual training set in all training data 
+    review_minimum_num = 30
+    test_percentage = 0.2 # percentage of test data in all data set
+    #training_percentage = 0.9 # percentage of actual training set in all training data 
 
-	#training_method = 'SVD' # random, CF, SVD, CBCF, WBCF
+    #training_method = 'SVD' # random, CF, SVD, CBCF, WBCF
 
-	print "review_minimum_num:", review_minimum_num
-	print "test_percentage:", test_percentage
-	#print "training_percentage:", training_percentage
-	#print "data_size:", data_size
-	#print "pick_test_data:", pick_test_data
-	# initialize variable    
-	"""Store data into two dictionary"""
-	user_indexed_reviews = dict()  # {user_id: {business_id: rating}
-	restaurant_indexed_reviews = dict()  # {business_id: {user_id :rating}}
-	smalldf = loadData.Parser() #load data from json file
-	# build reviews that can be indexed from both user_id and restaurant_id 
-	print "building indexed dictionaries..."
-	build_user_and_restaurant_indexed_reviews(smalldf, user_indexed_reviews, restaurant_indexed_reviews)   
-	print "setting data for test purposes..."
-	#extract users with more than review_minimum_num reviews
-	test_user_set = get_test_users(user_indexed_reviews, review_minimum_num)
-	#extract test data from orignal dataset
-	test_user_data = get_tests_and_update_reviews(user_indexed_reviews, restaurant_indexed_reviews, test_user_set, test_percentage)
-	print "total number of users in test_user_data:", len(test_user_data)
-	print "total number of users in training data:", len(user_indexed_reviews)
-	print "total number of restaurants in training data:", len(restaurant_indexed_reviews)
+    print "review_minimum_num:", review_minimum_num
+    print "test_percentage:", test_percentage
+    #print "training_percentage:", training_percentage
+    # initialize variable    
+    """Store data into two dictionary"""
+    user_indexed_reviews = dict()  # {user_id: {business_id: rating}
+    restaurant_indexed_reviews = dict()  # {business_id: {user_id :rating}}
+    smalldf = loadData.Parser() #load data from json file
+    # build reviews that can be indexed from both user_id and restaurant_id 
+    print "building indexed dictionaries..."
+    build_user_and_restaurant_indexed_reviews(smalldf, user_indexed_reviews, restaurant_indexed_reviews)   
+    print "setting data for test purposes..."
+    #extract users with more than review_minimum_num reviews
+    test_user_set = get_test_users(user_indexed_reviews, review_minimum_num)
+    #extract test data from orignal dataset
+    test_user_data = get_tests_and_update_reviews(user_indexed_reviews, restaurant_indexed_reviews, test_user_set, test_percentage)
+    w = csv.writer(open("test.csv", "w"))   
+    for key, val in test_user_data.items():
+        w.writerow([key, val])
+    w = csv.writer(open("train_user_restaurant.csv", "w"))   
+    for key, val in user_indexed_reviews.items():
+        w.writerow([key, val])  
+    w = csv.writer(open("train_restaurant_user.csv", "w"))   
+    for key, val in restaurant_indexed_reviews.items():
+        w.writerow([key, val])
+    print "total number of users in test_user_data:", len(test_user_data)
+    number_of_users = len(user_indexed_reviews)
+    number_of_restaurants = len(restaurant_indexed_reviews)
+    print "total number of users in training data:", len(user_indexed_reviews)
+    print "total number of restaurants in training data:", len(restaurant_indexed_reviews)
 
-	"""user_indexed_reviews: training dataset
-	   test_user_data: test dataset
-	"""
-	#baseline prediction and evaluation
-	base_evaluation = baseline.base_evaluating(test_user_data, user_indexed_reviews, restaurant_indexed_reviews)
-	base_rmse = evaluation.calRMSE(base_evaluation)
-	print "baseline rmse for test data is:", base_rmse
+    """user_indexed_reviews: training dataset
+       test_user_data: test dataset
+    """
+    #baseline prediction and evaluation
+    base_evaluation = baseline.base_evaluating(test_user_data, user_indexed_reviews, restaurant_indexed_reviews)
+    base_rmse = evaluation.calRMSE(base_evaluation)
+    print "baseline rmse for test data is:", base_rmse
 
-	CF_evaluations = itemBased.CF_evaluating(test_user_data, user_indexed_reviews, restaurant_indexed_reviews)
-	CF_rmse = evaluation.calRMSE(CF_evaluations)
-	print "Item-based CF rmse for test data is:",CF_rmse
+    CF_evaluations = itemBased.CF_evaluating(test_user_data, restaurant_indexed_reviews)
+    CF_rmse = evaluation.calRMSE(CF_evaluations)
+    print "Item-based CF rmse for test data is:",CF_rmse
+
+    svd_model = svd.SVD(number_of_users, number_of_restaurants, user_indexed_reviews)
+    svd_model.svd_training(user_indexed_reviews, test_user_data, 30)
+    svd_evaluation = svd_model.svd_test(test_user_data)
+    svd_rmse = evaluation.calRMSE(svd_evaluation)
+    print "SVD rmse for test data is:", svd_rmse
 
 if __name__ == '__main__':
     main(sys.argv)
