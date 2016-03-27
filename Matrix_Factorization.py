@@ -58,7 +58,7 @@ def svd(u_num, r_num, user_indexed_reviews, factor_num, test_user_data):
             true = rating
             pair = (user, restaurant)
             prediction = predictScore(avg_rating,bu[user_index],br[restaurant_index], p[user_index],q[restaurant_index])
-            evaluations[pair] = (true, prediction)
+            evaluations[pair] = (prediction,true)
 
     return evaluations
 
