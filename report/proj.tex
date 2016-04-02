@@ -65,7 +65,7 @@ We collect our data from Yelp recommendation Kaggle competition\cite{yelp},This 
 \subsection{ Data Processing}
 The original data file is in json format. We firstly parse the raw data of imformation from users, businesses and reviews, respectively and merge them into one dataframe. Then we extract the records with features of “Restaurants” and “Phoenix” for futher analysis. After this approach, we have 17145 users, 1454 business and 52749 reviews.
 
-Because many users only review a few restaurants, our dataset yelds a sparsity of 99.79\% which can be visualized from figure 1. To solve this problem, we create a smaller dataset which only consider  restaurants reviewed by more than 50 users.
+Because many users only review a few restaurants, our dataset yields a sparsity of 99.79\% which can be visualized from figure 1. To solve this problem, we create a smaller dataset which only consider  restaurants reviewed by more than 50 users.
 %
 
 \begin{figure}
