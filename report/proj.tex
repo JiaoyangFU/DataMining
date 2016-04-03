@@ -199,7 +199,7 @@ Our goal is to predict the rating a user would give to a restaurant. We predict 
 \ MAE = \sqrt{\frac{\sum{\left|r'_{u,i} - r_{u,i}\right|}}{N}}
 \end{equation}
 
-Here $r_{u,i}$ is the predicted rating from user $u$ on item $i$ and $r'_{u,i}$ is the true rating; $N$ is the size of test dataset. 
+Here $r'_{u,i}$ is the predicted rating from user $u$ on item $i$ and $r_{u,i}$ is the true rating; $N$ is the size of test dataset. 
 \subsection{Implementation}
 \subsubsection{Program Structure}
 Our work was implemented by Python. We have seven python files in total. They are main, loadData, Baseline, User-based CF, Item-based CF, SVD and Evaluation. The main program is the controller of the whole recommendation system. At first, it invoked the loadData file for data parsing. Then it invoked Baseline, User-based CF, Item-based CF and SVD predicting ratings using these four algorithms. Each time the predicted rating and true rating were stored together and the Evaluation program will calculate the RMSE and MAE errors for the predictions. 
