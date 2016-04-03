@@ -57,7 +57,6 @@
 \maketitle              % typeset the title of the contribution
 
 \begin{abstract}
-<<<<<<< HEAD
 Based on Yelp Data Challenge dataset, we aim to develop a predictive personalized recommendation system on user’s review star rating for restaurants, applying collaborative filtering algorithms. In particular, we implement and compare the performances of four algorithms including baseline, User-based and Item-based collaborative filtering and Singular Vaule Deccomposition (SVD). We evaluate our results by comparing our predicted rating to the actual rating using Root Mean Squared Error(RMSE) and Mean Absolute Error(MAE) metrics.
 
 \keywords{Recommendation System, Collaborative filtering, Singular Vaule Deccomposition (SVD), Yelp Data Challenge}
@@ -214,7 +213,27 @@ After this approach, we have 281 restaurants, 13820 users in training set and 91
 The joined dataframe was used to calculate overall average ratings $\mu$ that all users reviewed on all restaurants, average ratings $b_u$ of every users grouped by user id and average ratings $b_r$ of every restaurants grouped by restaurant id. These values were applied in equation(1) for the baseline prediction.
 
 The performance of our baseline predictor is $RMSE = 0.9014 $, $MAE= 0.8397$.
-\subsection{User-based CF and Item-based CF}
+\subsection{User-User CF and Item-Item CF}
+By using the preprocessed training data and testing data, joined dataframe, prediction formula and similarity formula, we did four experiments to see the performance of each method under given conditions.   
+
+\subsubsection{User-based CF-Experiment 1}
+In this experiment, we used all training data and tried to predicate rating for each user on each item. Also cosine similarity was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+
+\begin{figure}
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{fig1.png}
+		\caption{User review count}
+		\label{fig:side:a}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{fig2.png}
+		\caption{Restaurants review count}
+		\label{fig:side:b}
+	\end{minipage}
+\end{figure}
+
 \subsection{SVD}
 \subsection{Comparison}
 Table 1 shows the RMSE and MAE of each applied algorithms.
@@ -238,10 +257,7 @@ Table 1 shows the RMSE and MAE of each applied algorithms.
 From table 1 we can see that the baseline which is a mean predictor yields the best result. It is not surprising that collaborative filtering does not work very well with the yelp dataset. As we cited in the data section, the number of users who have reviewed enough restaurants for calculating similarity scores with other users is quite low. Collaborative filtering usually works not well when data are sparse, and has cold start problem for new users and items.
 
 When applying SVD method to the yelp data, we did not minus the global average rating value first, the RMSE result is 1.0568, which indicates the method works not that well comparing to other methods. To improve SVD, we subtracted the global average rating value first to generate the metrics $P$ and $Q$, after generating the predicted matrix, adding the global average rating value to each element. The RMSE result improves to  0.9175. Analyzing this phenomenon, it may note that in the origin matrix of rating between users and restaurants contains too many latent value. Thus, if we do not use global average value to control the latent value, it will badly influence the SVD performance measured by RMSE.
- 
- ...
- 
- In the future work, we would like to analyze the review text which is provided in the review json file and use this information to create comprehensive user and restaurant profiles. Also, we would explore further hybrid approaches and evaluate their performances.
 
+In the future work, we would like to analyze the review text which is provided in the review json file and use this information to create comprehensive user and restaurant profiles. Also, we would explore further hybrid approaches and evaluate their performances.
 
 \end{document}

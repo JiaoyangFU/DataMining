@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 APR 2016 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 APR 2016 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -259,7 +259,14 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_intertext_sep=\dimen142
 \l_MT_above_shortintertext_sep=\dimen143
 \l_MT_below_shortintertext_sep=\dimen144
-) (./proj.aux)
+) (./proj.aux
+
+LaTeX Warning: Label `fig:side:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:b' multiply defined.
+
+)
 \openout1 = `proj.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
@@ -274,8 +281,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
-
-(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count133
 \scratchdimen=\dimen145
@@ -347,7 +353,7 @@ Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 
 
-LaTeX Warning: Citation `MJ' on page 1 undefined on input line 74.
+LaTeX Warning: Citation `MJ' on page 1 undefined on input line 73.
 
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -361,13 +367,13 @@ Missing character: There is no ô in font cmr10!
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: Citation `Bruno' on page 2 undefined on input line 76.
+LaTeX Warning: Citation `Bruno' on page 2 undefined on input line 75.
 
 
-LaTeX Warning: Citation `Sumedh' on page 2 undefined on input line 78.
+LaTeX Warning: Citation `Sumedh' on page 2 undefined on input line 77.
 
 
-LaTeX Warning: Citation `yelp' on page 2 undefined on input line 81.
+LaTeX Warning: Citation `yelp' on page 2 undefined on input line 80.
 
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -382,7 +388,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Overfull \hbox (7.39099pt too wide) in paragraph at lines 81--82
+Overfull \hbox (7.39099pt too wide) in paragraph at lines 80--81
 \OT1/cmr/m/n/10 We col-lect our data from Yelp rec-om-men-da-tion Kag-gle com-p
 e-ti-tion[\OT1/cmr/bx/n/10 ?\OT1/cmr/m/n/10 ],This dataset
  []
@@ -402,17 +408,17 @@ Missing character: There is no ù in font cmr10!
 <fig1.png, id=11, 578.16pt x 433.62pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 91.
+Package pdftex.def Info: fig1.png used on input line 90.
 (pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
 
 <fig2.png, id=13, 578.16pt x 433.62pt>
 File: fig2.png Graphic file (type png)
  <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 97.
+Package pdftex.def Info: fig2.png used on input line 96.
 (pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
  [2]
 
-LaTeX Warning: Citation `Yehuda' on page 3 undefined on input line 109.
+LaTeX Warning: Citation `Yehuda' on page 3 undefined on input line 108.
 
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -422,10 +428,10 @@ Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 [3 <./fig1.png> <./fig2.png>] [4]
 
-LaTeX Warning: Citation `abc' on page 5 undefined on input line 187.
+LaTeX Warning: Citation `abc' on page 5 undefined on input line 186.
 
 
-LaTeX Warning: Citation `zhou' on page 5 undefined on input line 187.
+LaTeX Warning: Citation `zhou' on page 5 undefined on input line 186.
 
 [5]
 Missing character: There is no ‚ in font cmr10!
@@ -452,31 +458,43 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
- [6] [7] [8] (./proj.aux) ) 
+ [6]
+File: fig1.png Graphic file (type png)
+ <use fig1.png>
+Package pdftex.def Info: fig1.png used on input line 225.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+File: fig2.png Graphic file (type png)
+ <use fig2.png>
+Package pdftex.def Info: fig2.png used on input line 231.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+ [7] [8] (./proj.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
  3095 strings out of 493089
  43367 string characters out of 6134842
- 117282 words of memory out of 5000000
+ 117321 words of memory out of 5000000
  6541 multiletter control sequences out of 15000+600000
  9406 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,9n,23p,746b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
-.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.p
-fb>
-Output written on proj.pdf (8 pages, 227842 bytes).
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
+/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on proj.pdf (8 pages, 228581 bytes).
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)
  63 compressed objects within 1 object stream
