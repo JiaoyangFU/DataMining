@@ -149,7 +149,7 @@ We used Pandas for data processing which is an open source, data analysis librar
 
 After re-organizing the data, we used dictionay data structure to build the user-item matrix. For each records in the joined dataframe, we extract user as the key, the value of each key is a nested dictionary with business id as key and review rating as value, e.g. $\{user\_id: \{restautant\_id: rating\}\}$. Meanwhile, we also built another item-user matrix which can be indexed by restaurant id, e.g. $\{restautant\_id: \{user\_id: rating\}\}$.
 
-For dividing data into training and testing data, we only consider users with more than 30 reviews. That is for each key in the user-indexed dictionary, if then len of the value set is greater than 30, we took 20\% of the entry out of the set and stored them into the test dictionary. The remainning 80\% became the trainning data. 
+For dividing data into training and testing data, we only consider users with more than 30 reviews. That is for each key in the user-indexed dictionary, if the length of the value set is greater than 30, we took 20\% of the entry out of the set and stored them into the test dictionary. The remainning 80\% became the trainning data. 
 
 After this approach, we have 281 restaurants, 13820 users in training set and 91 users in test set.
 \subsection{Baseline}
@@ -177,7 +177,12 @@ Table 1 shows the RMSE and MAE of each applied algorithms.
 \end{table}
 
 \section{Discussion and Future Work}
-From table 1 we can see that the baseline which is a mean predictor yields the best result. It is not surprising that collaborative filtering does not work very well with the yelp dataset. As we cited in the data section, the number of users who have reviewed enough restaurants for calculating similarity scores with other users is quite low. 
+From table 1 we can see that the baseline which is a mean predictor yields the best result. It is not surprising that collaborative filtering does not work very well with the yelp dataset. As we cited in the data section, the number of users who have reviewed enough restaurants for calculating similarity scores with other users is quite low. Collaborative filtering usually works not well when data are sparse, and has cold start problem for new users and items.
+ 
+ ...
+ 
+ In the future work, we would like to analyze the review text which is provided in the review json file and use this information to create comprehensive user and restaurant profiles. Also, we would explore further hybrid approaches and evaluate their performances.
+
 %
 % ---- Bibliography ----
 %
