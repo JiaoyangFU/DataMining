@@ -213,9 +213,12 @@ After this approach, we have 281 restaurants, 13820 users in training set and 91
 \subsection{Baseline}
 The joined dataframe was used to calculate overall average ratings $\mu$ that all users reviewed on all restaurants, average ratings $b_u$ of every users grouped by user id and average ratings $b_r$ of every restaurants grouped by restaurant id. These values were applied in equation(1) for the baseline prediction.
 
-The performance of our baseline predictor is $RMSE = 0.9014 $, $MAE= 0.8397$.
+The performance of our baseline predictor is $RMSE = 0.9014 $, $MAE = 0.8397$.
 \subsection{User-based CF and Item-based CF}
 \subsection{SVD}
+According to the training set, we use SVD method to generate two matrices $P$ and $Q$ which represent User matrix and Restaurant matrix respectively. We choose the decreased dimension $K-factors = 20$, and regularization $\lambda = 0.01$. Then we use these two matrices $P$ and $Q$ to form a predicted matrix. Then we use the testing set to measure how well SVD works by RMSE and MAE method.
+
+The performance of our SVD is $RMSE = 0.9175 $, $MAE = 0.8403$.
 \subsection{Comparison}
 Table 1 shows the RMSE and MAE of each applied algorithms.
 \begin{table}
