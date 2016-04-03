@@ -215,7 +215,84 @@ After this approach, we have 281 restaurants, 13820 users in training set and 91
 The joined dataframe was used to calculate overall average ratings $\mu$ that all users reviewed on all restaurants, average ratings $b_u$ of every users grouped by user id and average ratings $b_r$ of every restaurants grouped by restaurant id. These values were applied in equation(1) for the baseline prediction.
 
 The performance of our baseline predictor is $RMSE = 0.9014 $, $MAE = 0.8397$.
-\subsection{User-based CF and Item-based CF}
+
+\subsection{User-User CF and Item-Item CF}
+By using the preprocessed training data and testing data, joined dataframe, prediction formula and similarity formula, we did four experiments to see the performance of each method under given conditions.   
+
+\subsubsection{User-based CF-Experiment 1}
+In this experiment, we used all training data and tried to predicate rating for each user on each item. Also cosine similarity was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+
+\begin{figure}
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{RMSE1.png}
+		\caption{Used-based RMSE}
+		\label{fig:side:a}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{MAE1.png}
+		\caption{Used-based MAE}
+		\label{fig:side:b}
+	\end{minipage}
+\end{figure}
+
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 3 and figure 4 that both RMSE and MAE value is very high(larger than 1.0) when k is 20. But with the increasing of k, both RMSE and MAE decrease quickly. This is because when more meaningful similar users are taking into consideration when calculating  ratings, the accuracy thus is improved. 
+
+\subsubsection{User-based CF-Experiment 2}
+In this experiment, we predicated ratings for users in the extracted 20\% testing data. Also cosine similarity was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+
+\begin{figure}
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{RMSE2.png}
+		\caption{Used-based RMSE}
+		\label{fig:side:a}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{MAE2.png}
+		\caption{Used-based MAE}
+		\label{fig:side:b}
+	\end{minipage}
+\end{figure}
+
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 5 and figure 6 that when k is 20,both RMSE and MAE reach their lowest value respectively.when k is lower than 20 or larger than 20, both RMSE and MAE increases. This is because if too many users with low similarity to current user are considered, the accuracy is negatively affected. Also, if not enough users with high similarity to current user are chosen, the accuracy cannot achieve the best.  
+
+\subsubsection{User-based CF-Experiment 3}
+In this experiment, we predicated ratings for users in the extracted 20\% testing data. Pearson correlation was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+
+\begin{figure}
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{RMSE3.png}
+		\caption{Used-based RMSE}
+		\label{fig:side:a}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{MAE3.png}
+		\caption{Used-based MAE}
+		\label{fig:side:b}
+	\end{minipage}
+\end{figure}
+
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 7 and figure 8 that when k is in the range of 5 to 50, both RMSE and MAE value decrease dramatically with the increasing of k. After 50, with the increasing of k,both both RMSE and MAE value decrease slowly. This is because the similarity whose ranking behind  50 has lower effect on the predicted ratings.
+
+\subsubsection{Item-based CF-Experiment 4}
+In this experiment, we predicated ratings for users in the extracted 20\% testing data. Pearson correlation was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+
+\begin{figure}
+	\centering
+	\begin{minipage}[t]{0.5\textwidth}	
+		\includegraphics[width=2.2in]{twoPearsonMethods.png}
+		\caption{Used-based RMSE}
+		\label{fig:side:a}
+	\end{minipage}
+\end{figure}
+
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. When comparing the result of item based prediction and user based prediction, we can see under the same given conditions user based prediction surpasses item based prediction. This is because pearson correlation is more suitable for calculating similarity for user based prediction. 
+
 \subsection{SVD}
 According to the training set, we use SVD method to generate two matrices $P$ and $Q$ which represent User matrix and Restaurant matrix respectively. We choose the decreased dimension $K-factors = 20$, and regularization $\lambda = 0.01$. Then we use these two matrices $P$ and $Q$ to form a predicted matrix. Then we use the testing set to measure how well SVD works by RMSE and MAE method.
 
