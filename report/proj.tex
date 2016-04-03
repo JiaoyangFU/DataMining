@@ -126,12 +126,12 @@ p_{u,i} ={\bar r_{u}}  + \frac
 {\sum\nolimits_{u' \in N} |s(u,u')|}
 \end{equation}
 
-In order to eliminate the differences in users's use of the rating scale, subtracting the user's mean rating ${\bar r_{u'}}$ to compensate is necessary.   The parameter $p_{u,i}$ is predicated rating on item i for user $u$.  ${\bar r_{u'}}$ is average rating on all items rated by user $u$.The parameter $r_{u',i}$ indicates the rating of user $u'$ on item i.$s(u,u')$ is similarity between user u and $u'$. N is the number of neighbors chosen for user $u$.  
+In order to eliminate the differences in users's use of the rating scale, subtracting the user's mean rating ${\bar r_{u'}}$ to compensate is necessary.   The parameter $p_{u,i}$ is predicated rating on item i for user $u$.  ${\bar r_{u'}}$ is average rating on all items rated by user $u'$.The parameter $r_{u',i}$ indicates the rating of user $u'$ on item i.$s(u,u')$ is similarity between user u and $u'$. N is the number of neighbors chosen for user $u$.  
 
 
 
 \subsubsection{Computing User Similarity}
-An critical parameter used to calculate predications is similarity function.Among many proposed similarity functions we only choose Cosine Similarity to give a detailed introduction. 
+An critical parameter used to calculate predications is similarity function.Among many proposed similarity functions we choose Cosine Similarity and Pearson Correlation to give a detailed introduction. 
 
 In Cosine Similarity model, users are represented as $|\textit{I}|$-demensional vectors of rating on $|\textit{I}|$ items.Similarity is measured by the cosine distance between two rating vectors. The formula is given below indicating how to calculate the Cosine Similarity between user $u$ and $v$. 
 \begin{equation}
@@ -139,6 +139,15 @@ s(u,v) = \frac{r_{u}\cdot r_{v}}{\norm {r_{u}}_{2} \norm {r_{v}}_{2}}=\frac{\sum
 \end{equation}
 
 Unknown ratings are considered to be 0. $r_{u}$ is rating vector of user $u$. $\norm {r_{u}}_{2}$ is the Euclidean norm of rating vector $r_{u}$.
+
+In Pearson Correlation model, it computes the statistical correlation between two user's common ratings to determine their similarity. The formula is given below indicating how to calculate the Cosine Similarity between user $u$ and $v$. 
+
+\begin{equation}
+s(u,v) =\frac{{\sum\nolimits_{i \in {I_{u} \cap I_{v}}}(r_{u,i}-\bar{r}_{u})(r_{v,i}-\bar{r}_{v})}}{ \sqrt{{\sum\nolimits_{i \in {I_{u} \cap I_{v}}}(r_{u,i}-\bar{r}_{u})^2}} \sqrt{{\sum\nolimits_{i \in {I_{u} \cap I_{v}}}(r_{v,i}-\bar{r}_{v})^2}}}
+\end{equation}
+
+The parameter $I_{u}$ is a set of items rated by user $u$. Parameter ${\bar r_{u}}$ is average rating on all items rated by user $u$.The parameter $r_{u,i}$ indicates the rating of user $u$ on item i.
+
 
 \subsection{Item-Item Collaborative Filtering}
 \textit{Item-Item Collaborative Filtering} uses similarity between the rating patterns of items.If two items tend to have the same users like and dislike them,then they are similar and users are expected to have similar preferences for similar items.
@@ -222,17 +231,74 @@ In this experiment, we used all training data and tried to predicate rating for 
 \begin{figure}
 	\begin{minipage}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[width=2.2in]{fig1.png}
-		\caption{User review count}
+		\includegraphics[width=2.2in]{RMSE1.png}
+		\caption{Used-based RMSE}
 		\label{fig:side:a}
 	\end{minipage}%
 	\begin{minipage}[t]{0.5\textwidth}
 		\centering
-		\includegraphics[width=2.2in]{fig2.png}
-		\caption{Restaurants review count}
+		\includegraphics[width=2.2in]{MAE1.png}
+		\caption{Used-based MAE}
 		\label{fig:side:b}
 	\end{minipage}
 \end{figure}
+
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from above charts that both RMSE and MAE value is very high(larger than 1.0) when k is 20. But with the increasing of k, both RMSE and MAE decrease quickly. This is because when more meaningful similar users are taking into consideration when calculating  ratings, the accuracy thus is improved. 
+
+\subsubsection{User-based CF-Experiment 2}
+In this experiment, we predicated ratings for users in the extracted 20\% testing data. Also cosine similarity was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+
+\begin{figure}
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{RMSE2.png}
+		\caption{Used-based RMSE}
+		\label{fig:side:a}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{MAE2.png}
+		\caption{Used-based MAE}
+		\label{fig:side:b}
+	\end{minipage}
+\end{figure}
+
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from above charts that when k is 20,both RMSE and MAE reach their lowest value respectively.when k is lower than 20 or larger than 20, both RMSE and MAE increases. This is because if too many users with low similarity to current user are considered, the accuracy is negatively affected. Also, if not enough users with high similarity to current user are chosen, the accuracy cannot achieve the best.  
+
+\subsubsection{User-based CF-Experiment 3}
+In this experiment, we predicated ratings for users in the extracted 20\% testing data. Pearson correlation was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+
+\begin{figure}
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{RMSE3.png}
+		\caption{Used-based RMSE}
+		\label{fig:side:a}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=2.2in]{MAE3.png}
+		\caption{Used-based MAE}
+		\label{fig:side:b}
+	\end{minipage}
+\end{figure}
+
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from above charts that when k is in the range of 5 to 50, both RMSE and MAE value decrease dramatically with the increasing of k. After 50, with the increasing of k,both both RMSE and MAE value decrease slowly. This is because the similarity whose ranking behind  50 has lower effect on the predicted ratings.
+
+\subsubsection{Item-based CF-Experiment 4}
+In this experiment, we predicated ratings for users in the extracted 20\% testing data. Pearson correlation was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+
+\begin{figure}
+	\centering
+	\begin{minipage}[t]{0.5\textwidth}	
+		\includegraphics[width=2.2in]{twoPearsonMethods.png}
+		\caption{Used-based RMSE}
+		\label{fig:side:a}
+	\end{minipage}
+\end{figure}
+
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. When comparing the result of item based prediction and user based prediction, we can see under the same given conditions user based prediction surpasses item based prediction. This is because pearson correlation is more suitable for calculating similarity for user based prediction. 
+
 
 \subsection{SVD}
 \subsection{Comparison}

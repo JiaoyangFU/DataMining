@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 APR 2016 17:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 APR 2016 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -266,6 +266,21 @@ LaTeX Warning: Label `fig:side:a' multiply defined.
 
 LaTeX Warning: Label `fig:side:b' multiply defined.
 
+
+LaTeX Warning: Label `fig:side:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:a' multiply defined.
+
 )
 \openout1 = `proj.aux'.
 
@@ -428,10 +443,10 @@ Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 [3 <./fig1.png> <./fig2.png>] [4]
 
-LaTeX Warning: Citation `abc' on page 5 undefined on input line 186.
+LaTeX Warning: Citation `abc' on page 5 undefined on input line 195.
 
 
-LaTeX Warning: Citation `zhou' on page 5 undefined on input line 186.
+LaTeX Warning: Citation `zhou' on page 5 undefined on input line 195.
 
 [5]
 Missing character: There is no ‚ in font cmr10!
@@ -458,46 +473,81 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
- [6]
-File: fig1.png Graphic file (type png)
- <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 225.
+ [6] <RMSE1.png, id=41, 578.16pt x 433.62pt>
+File: RMSE1.png Graphic file (type png)
+ <use RMSE1.png>
+Package pdftex.def Info: RMSE1.png used on input line 234.
 (pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
-File: fig2.png Graphic file (type png)
- <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 231.
+
+<MAE1.png, id=42, 578.16pt x 433.62pt>
+File: MAE1.png Graphic file (type png)
+ <use MAE1.png>
+Package pdftex.def Info: MAE1.png used on input line 240.
 (pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
- [7] [8] (./proj.aux)
+
+<RMSE2.png, id=43, 578.16pt x 433.62pt>
+File: RMSE2.png Graphic file (type png)
+ <use RMSE2.png>
+Package pdftex.def Info: RMSE2.png used on input line 254.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+
+<MAE2.png, id=44, 578.16pt x 433.62pt>
+File: MAE2.png Graphic file (type png)
+ <use MAE2.png>
+Package pdftex.def Info: MAE2.png used on input line 260.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+ [7] [8 <./RMSE1.png> <./MAE1.png> <./RMSE2.png> <./MAE2.png>] <RMSE3.png, id=5
+6, 578.16pt x 433.62pt>
+File: RMSE3.png Graphic file (type png)
+
+<use RMSE3.png>
+Package pdftex.def Info: RMSE3.png used on input line 274.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+ <MAE3.png, id=57, 578.16pt x 433.62pt>
+File: MAE3.png Graphic file (type png)
+ <use MAE3.png>
+Package pdftex.def Info: MAE3.png used on input line 280.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+
+<twoPearsonMethods.png, id=58, 578.16pt x 433.62pt>
+File: twoPearsonMethods.png Graphic file (type png)
+
+<use twoPearsonMethods.png>
+Package pdftex.def Info: twoPearsonMethods.png used on input line 294.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+ [9 <./RMSE3.png> <./MAE3.png>] [10 <./twoPearsonMethods.png>] [11] (./proj.aux
+)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3095 strings out of 493089
- 43367 string characters out of 6134842
- 117321 words of memory out of 5000000
- 6541 multiletter control sequences out of 15000+600000
+ 3130 strings out of 493089
+ 43860 string characters out of 6134842
+ 118322 words of memory out of 5000000
+ 6569 multiletter control sequences out of 15000+600000
  9406 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,9n,23p,746b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,9n,23p,746b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
 usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on proj.pdf (8 pages, 228581 bytes).
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on proj.pdf (11 pages, 423799 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
