@@ -4,7 +4,7 @@ import numpy as np
 
 
 def Parser():
-	filepath = './data/yelp_training_set_'
+	filepath = '../../../yelp_training_set/yelp_training_set_'
 	#filepath = '/Users/Stella/Documents/yelp/data/yelp_academic_dataset_'
 	with open(filepath + 'review.json') as f:
 	    reviews = pd.DataFrame(json.loads(line) for line in f)
@@ -46,7 +46,7 @@ def Parser():
 	small = recompute_frame(dataFrame)
 	small = small[(small.business_review_count > 50)]
 	smalldf = recompute_frame(small)
-	smalldf.to_csv('small.csv',  sep='\t', encoding='utf-8')
+    #smalldf.to_csv('small.csv',  sep='\t', encoding='utf-8')
 
 	return smalldf
 

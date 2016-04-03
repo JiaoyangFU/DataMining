@@ -1,15 +1,23 @@
 import sys
 import loadData
-import baseline
 import evaluation
+<<<<<<< HEAD:main.py
 import Matrix_Factorization
 import itemBased
+=======
+import userBased
+>>>>>>> userBased:userBasedCF/Method3/main.py
 import csv
 
 def build_dict(dataFrame, user_restaurant_dict, restaurant_user_dict):
     """
+<<<<<<< HEAD:main.py
     user_restaurant_dict is a new review dictionary {user_id : {business_id : [review]}} that can be indexed by user_id
     restaurant_user_dict is a new review dictionary {user_id : {business_id : [review]}} that can be indexed by restaurant_id
+=======
+    user_indexed_reviews is a new review dictionary {user_id : {business_id : [review]}} that can be indexed by user_id
+    restaurant_indexed_reviews is a new review dictionary {business_id : {user_id: [review]}} that can be indexed by restaurant_id
+>>>>>>> userBased:userBasedCF/Method3/main.py
     """
     assert len(user_restaurant_dict) == 0, "user_restaurant_dict must be empty"
     assert len(restaurant_user_dict) == 0, "restaurant_user_dict must be empty"
@@ -69,8 +77,17 @@ def cal_average_rating(user_restaurant_dict):
     		count += 1
     return total/count
 
+def storeContents(mapName,fileName):
+    fileName=fileName+ ".csv"
+    w = csv.writer(open(fileName, "w"))
+    for key, val in mapName.items():
+        w.writerow([key, val])
+
+# function  storeRatingDict() END
+
 
 def main(argv):
+<<<<<<< HEAD:main.py
 
     review_minimum_num = 30
     test_percentage = 0.2 
@@ -108,6 +125,55 @@ def main(argv):
     svd_method = Matrix_Factorization.svd(number_of_users, number_of_restaurants, user_restaurant_dict, 20, test_data)
     svd_rmse = evaluation.calRMSE(svd_method)
     print "SVD rmse for test data is:", svd_rmse
+=======
+    # set necessary parameters
+    review_minimum_num = 30
+    test_percentage = 0.2 # percentage of test data in all data set
+    print "review_minimum_num:", review_minimum_num
+    print "test_percentage:", test_percentage
+    
+    # initialize variable    
+    """Store data into two dictionary"""
+    user_indexed_reviews = dict()  # {user_id: {business_id: rating}
+    restaurant_indexed_reviews = dict()  # {business_id: {user_id :rating}}
+    smalldf = loadData.Parser() #load data from json file
+    
+    # build reviews that can be indexed from both user_id and restaurant_id 
+    print "building indexed dictionaries..."
+    build_user_and_restaurant_indexed_reviews(smalldf, user_indexed_reviews, restaurant_indexed_reviews)   
+    print "setting data for test purposes..."
+    #extract users with more than review_minimum_num reviews
+    test_user_set = get_test_users(user_indexed_reviews, review_minimum_num)
+    #extract test data from orignal dataset
+    test_user_data = get_tests_and_update_reviews(user_indexed_reviews, restaurant_indexed_reviews, test_user_set, test_percentage)
+    
+    evaluationMap ={} # {k: [RMSE,MAE]}
+    similarityThreshold=0
+
+    stepList=[5,10,20,50,100,150]
+    
+    print evaluationMap
+    
+    for k in stepList:
+        CF_evaluations = userBased.CF_evaluating(test_user_data, user_indexed_reviews,k,similarityThreshold)
+        CF_rmse = evaluation.calRMSE(CF_evaluations)
+        CF_mae = evaluation.calMAE(CF_evaluations)
+        evaluationMap[k]=[CF_rmse,CF_mae]
+    
+    
+    print evaluationMap
+
+    fileName="evaluationMap3.csv"
+    w = csv.writer(open(fileName, "w"))
+    w.writerow(["k", ["CF_rmse","CF_mae"]])
+
+    for key, val in evaluationMap.items():
+        w.writerow([key, val])
+
+
+
+
+>>>>>>> userBased:userBasedCF/Method3/main.py
 
 if __name__ == '__main__':
     main(sys.argv)
