@@ -8,6 +8,9 @@
 \usepackage{makeidx}  % allows for indexgeneration
 %
 \usepackage{graphicx}
+\usepackage{mathtools}
+
+\DeclareMathOperator*{\argmin}{argmin}
 
 \begin{document}
 %
@@ -41,8 +44,8 @@
 \maketitle              % typeset the title of the contribution
 
 \begin{abstract}
-Based on Yelp Data Challenge dataset, we aim to develop a predictive personalized recommendation system on user’s review star rating for restaurants, applying collaborative filtering algorithms. In particular, we implement and compare the performances of four algorithms including baseline, User-based and Item-based collaborative filtering and Singular Vaule Deccomposition (SVD). We evaluate our results by comparing our predicted rating to the actual rating using Root Mean Squared Error(RMSE) and Mean Absolute Error(MAE) metrics
-\keywords{Recommendation System, Collaborative filtering, Singular Vaule Deccomposition (SVD), Yelp Data Challenge}
+Based on Yelp Data Challenge dataset, we aim to develop a predictive personalized recommendation system on user’s review star rating for restaurants, applying collaborative filtering algorithms. In particular, we implement and compare the performances of four algorithms including baseline, User-based and Item-based collaborative filtering and Singular Value Decomposition (SVD). We evaluate our results by comparing our predicted rating to the actual rating using Root Mean Squared Error(RMSE) and Mean Absolute Error(MAE) metrics
+\keywords{Recommendation System, Collaborative filtering, Yelp Data Challenge}
 \end{abstract}
 %
 \section{Introduction}
@@ -51,10 +54,10 @@ With rapid development of advanced technology, people nowadays can achieve the t
 
 Yelp collected review dataset which records how well each user rates for limited amount of restaurants. Based on these review history, it suggests favored restaurants to users. The problem is that Yelp seems to offer similar recommendations that are popular for various users. In fact, people may have diverse preferences to food. For instance, some users may prefer Asian food, while others may favor Mexican food. In fact, yelp did not consider these factors too much. Therefore, it seems still have some room to improve the recommendation system in the personalization aspect.
 
-Collaborative filtering, a method making predictions based on a large dataset used by some recommendation system like Yelp, Amazon, and Netflix. It automatically predict about the interests of a user by collecting preference or tastes information from other users. Furthermore, there are numerous collarborative filtering methods, such as baseline, K- nearest neighbor, and matrix decomposition. This paper aims to compare how accurate each methods applying on Yelp Data Challenge through using Root metric Mean Squared Error(RMSE) and Mean Aboslute Error(MAE).
+Collaborative filtering, a method making predictions based on a large dataset used by some recommendation system like Yelp, Amazon, and Netflix. It automatically predict about the interests of a user by collecting preference or tastes information from other users. Furthermore, there are numerous collaborative filtering methods, such as baseline, K- nearest neighbor, and matrix decomposition. This paper aims to compare how accurate each methods applying on Yelp Data Challenge through using Root metric Mean Squared Error(RMSE) and Mean Absolute Error(MAE).
 
 \section{Literature Review}
-There are generaly three types of recommendation systems: content-based filtering, collaborative filtering and hybrid approaches. Content-based recommendation systems work with users’ profile and items’ characteristics. The feature used to bulding profiles are often a set of keywords. For example, a music recommendation system\cite{MJ} implemented with content-based filtering, each song is assigned an attribute manually. If a user’s profile shows interests in songs with particular atrributes, similar songs will be recommended to the user. The limitations of these systems is that it always recommends similar items to user that he has already purchased and it’s difficult to recommend items for new users. 
+There are generally three types of recommendation systems: content-based filtering, collaborative filtering and hybrid approaches. Content-based recommendation systems work with users’ profile and items’ characteristics. The feature used to build profiles are often a set of keywords. For example, a music recommendation system\cite{MJ} implemented with content-based filtering, each song is assigned an attribute manually. If a user’s profile shows interests in songs with particular attributes, similar songs will be recommended to the user. The limitations of these systems is that it always recommends similar items to user that he has already purchased and it’s difficult to recommend items for new users. 
 
 Collaborative filtering try to predict the utility of items for a particular user based on the items previously rated by other users with similar tastes and preferences. In\cite{Bruno} the author builds a recommendation system for a retail store using three kinds of collaborative filtering algorithms - memory based approach, matrix factorization and bigram matrix method. Collaborative filtering also has limitations that it is difficult to recommend items for new users, to recommend items which have not been rated before, and to recommend when rating information is insufficient. 
 
@@ -63,7 +66,7 @@ Hybrid approach combines multiple techniques to overcome the limitations of indi
 \section{Data}
 We collect our data from Yelp recommendation Kaggle competition\cite{yelp},This dataset contains 11,537 businesses, 8282 check-in sets, 43873 users, and 229907 reviews. We target “Restaurant” in the city of “Phoenix” as it is more reasonable to recommend restaurants for users in the same city.
 \subsection{ Data Processing}
-The original data file is in json format. We firstly parse the raw data of imformation from users, businesses and reviews, respectively and merge them into one dataframe. Then we extract the records with features of “Restaurants” and “Phoenix” for futher analysis. After this approach, we have 17145 users, 1454 business and 52749 reviews.
+The original data file is in json format. We firstly parse the raw data of information from users, businesses and reviews, respectively and merge them into one dataframe. Then we extract the records with features of “Restaurants” and “Phoenix” for further analysis. After this approach, we have 17145 users, 1454 business and 52749 reviews.
 
 Because many users only review a few restaurants, our dataset yields a sparsity of 99.79\% which can be visualized from figure 1. To solve this problem, we create a smaller dataset which only consider  restaurants reviewed by more than 50 users.
 %
@@ -101,7 +104,31 @@ Here $\mu$ is the mean rating of reviews of all business by all users. The param
 
 \subsection{User-based Collaborative Filtering}
 
-\subsection{Singular Vaule Deccomposition}
+\subsection{Singular Value Decomposition}
+Singular Value Decomposition(SVD) is a latent factor method which popularly applied in Netflix Prize competition. A matrix can be approximated with SVD by multiplying two generated feature matrices $P$ and $Q$ with rank $k$.
+\begin{equation}
+\hat{R_{ij}} = P_iQ_{j}^{T}
+\end{equation}
+In this paper, the matrix $R$ is a ratings matrix with rows representing all the users, and columns representing businesses. For example $R_{ij}$ represents the rating from user $i$ to restaurant $j$. Then, minimizing the squared differences between the rating matrix $R$ and the SVD approximated matrix $\hat{R}$. Thus,projecting user and restaurants rating matrix into two lower dimension feature matrices $P$ as user feature matrix and $Q$ as restaurant matrix. In order to improve the SVD prediction accuracy, subtract the global average rating, $\mu$.
+
+\begin{equation}
+\hat{R_{ij}} = P_iQ_{j}^{T} + \mu
+\end{equation}
+
+\begin{equation}
+\argmin_{P,Q}\sum_{(i,j)\in{R}}{(R_{ij} - \mu - P_iQ_{j}^{T})}^2
+\end{equation}
+
+We also add a regularization to avoid overfitting to our training set.
+
+\begin{equation}
+\argmin_{P,Q}\sum_{(i,j)\in{R}}{(R_{ij} - \mu - P_iQ_{j}^{T})}^2 + \lambda({\left\|P_i\right\|}^2 + {\left\|Q_j\right\|}^2 )
+\end{equation}
+
+In order to find optimum matrices for $P$ and $Q$, we implement the alternating least squares method as described by Cichocki and Zhou.\cite{Andrzej}\cite{Yunhong}
+
+After obtaining the predicted rating by matrices $P$ and $Q$ via SVD, add the global mean back to each predicted rating. We take $k$ as 20 and $\lambda$ as 0.01.
+
 
 \section{Experiments and Results}
 %
