@@ -39,7 +39,7 @@
 %
 \title{Yelp Recommendation System Based on Collaborative Filtering}
 %
-\titlerunning{Yelp Recommendation System Based on Collaborative Filterings}  % abbreviated title (for running head)
+\titlerunning{Yelp Recommendation System Based on Collaborative Filtering}  % abbreviated title (for running head)
 %                                     also used for the TOC unless
 %                                     \toctitle is used
 %
@@ -71,7 +71,7 @@ Yelp collected review dataset which records how well each user rates for limited
 Collaborative filtering, a method making predictions based on a large dataset used by some recommendation system like Yelp, Amazon, and Netflix. It automatically predict about the interests of a user by collecting preference or tastes information from other users. Furthermore, there are numerous collaborative filtering methods, such as baseline, K- nearest neighbor, and matrix decomposition. This paper aims to compare how accurate each methods applying on Yelp Data Challenge through using Root metric Mean Squared Error(RMSE) and Mean Absolute Error(MAE).
 
 \section{Literature Review}
-There are generally three types of recommendation systems: content-based filtering, collaborative filtering and hybrid approaches. Content-based recommendation systems work with users’ profile and items’ characteristics. The feature used to build profiles are often a set of keywords. For example, a music recommendation system\cite{MJ} implemented with content-based filtering, each song is assigned an attribute manually. If a user’s profile shows interests in songs with particular atrrtibutes, similar songs will be recommended to the user. The limitations of these systems is that it always recommends similar items to user that he has already purchased and it’s difficult to recommend items for new users. 
+There are generally three types of recommendation systems: content-based filtering, collaborative filtering and hybrid approaches. Content-based recommendation systems work with users’ profile and items’ characteristics. The feature used to build profiles are often a set of keywords. For example, a music recommendation system\cite{MJ} implemented with content-based filtering, each song is assigned an attribute manually. If a user’s profile shows interests in songs with particular attributes, similar songs will be recommended to the user. The limitations of these systems is that it always recommends similar items to user that he has already purchased and it’s difficult to recommend items for new users. 
 
 Collaborative filtering try to predict the utility of items for a particular user based on the items previously rated by other users with similar tastes and preferences. In\cite{Bruno} the author builds a recommendation system for a retail store using three kinds of collaborative filtering algorithms - memory based approach, matrix factorization and bigram matrix method. Collaborative filtering also has limitations that it is difficult to recommend items for new users, to recommend items which have not been rated before, and to recommend when rating information is insufficient. 
 
@@ -246,5 +246,37 @@ When applying SVD method to the yelp data, we did not minus the global average r
  
  In the future work, we would like to analyze the review text which is provided in the review json file and use this information to create comprehensive user and restaurant profiles. Also, we would explore further hybrid approaches and evaluate their performances.
 
+%
+% ---- Bibliography ----
+%
+\begin{thebibliography}{5}
+%
+\bibitem {MJ}
+MJ Pazzani, D Billsus.:
+Content-based Recommendation Systems. In The adaptive web, pp. 325–341. Springer (1981) 
+
+\bibitem {Bruno}
+Bruno Pradel, Savaneary Sean, Julien Delporte.: 
+A Case Study in a Recommender System Based on Purchase Data. Proceedings of the 17th ACM SIGKDD international conference on Knowledge discovery and data mining, pp. 377-385 (2011)
+
+\bibitem {Sumedh}
+Sumedh Sawant, Gina Pai.:
+Yelp Food Recommendation System
+
+\bibitem {yelp}
+https://www.kaggle.com/c/yelp-recsys-2013
+
+\bibitem {Yehuda}
+Yehuda Koren.: 
+Factorization meets the neighborhood: a multifaceted collaborative filtering model. In Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining (KDD '08), pp. 426-434 (2008)
+
+\bibitem{Andrzej}
+Andrzej Cichocki and Rafal Zdunek. Regularizaed Alternating Least Squares Algorithms for Non-negative Matrix/Tensor Factorization. pp. 793-802 (2007)
+
+\bibitem{Yunhong}
+Yunhong Zhou, Dennis Wikinson, Robert Schreiber, and Rong Pan. Large-Scale Parallel Collaborative Filtering for the Netflix Prize (2008)
+
+
+\end{thebibliography}
 
 \end{document}
