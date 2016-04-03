@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  2 APR 2016 22:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  3 APR 2016 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -262,18 +262,18 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 ) (./proj.aux)
 \openout1 = `proj.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -345,18 +345,30 @@ Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
 
+
+LaTeX Warning: Citation `MJ' on page 1 undefined on input line 74.
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
 [1
 
 
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Citation `Bruno' on page 2 undefined on input line 76.
+
+
+LaTeX Warning: Citation `Sumedh' on page 2 undefined on input line 78.
+
+
+LaTeX Warning: Citation `yelp' on page 2 undefined on input line 81.
+
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -370,9 +382,9 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Overfull \hbox (6.96048pt too wide) in paragraph at lines 79--80
+Overfull \hbox (7.39099pt too wide) in paragraph at lines 81--82
 \OT1/cmr/m/n/10 We col-lect our data from Yelp rec-om-men-da-tion Kag-gle com-p
-e-ti-tion[4],This dataset
+e-ti-tion[\OT1/cmr/bx/n/10 ?\OT1/cmr/m/n/10 ],This dataset
  []
 
 Missing character: There is no ‚ in font cmr10!
@@ -390,49 +402,83 @@ Missing character: There is no ù in font cmr10!
 <fig1.png, id=11, 578.16pt x 433.62pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 90.
+Package pdftex.def Info: fig1.png used on input line 91.
 (pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
 
 <fig2.png, id=13, 578.16pt x 433.62pt>
 File: fig2.png Graphic file (type png)
  <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 96.
+Package pdftex.def Info: fig2.png used on input line 97.
 (pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
  [2]
+
+LaTeX Warning: Citation `Yehuda' on page 3 undefined on input line 109.
+
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [3 <./fig1.png> <./fig2.png>] [4] [5] (./proj.aux) ) 
+[3 <./fig1.png> <./fig2.png>] [4]
+
+LaTeX Warning: Citation `abc' on page 5 undefined on input line 187.
+
+
+LaTeX Warning: Citation `zhou' on page 5 undefined on input line 187.
+
+[5]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+ [6] [7] (./proj.aux) ) 
 Here is how much of TeX's memory you used:
- 3076 strings out of 493089
- 43193 string characters out of 6134842
- 117280 words of memory out of 5000000
- 6528 multiletter control sequences out of 15000+600000
- 7430 words of font info for 27 fonts, out of 8000000 for 9000
+ 3095 strings out of 493089
+ 43367 string characters out of 6134842
+ 117282 words of memory out of 5000000
+ 6541 multiletter control sequences out of 15000+600000
+ 9406 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,7n,23p,735b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmtt9.pfb>
-Output written on proj.pdf (5 pages, 213641 bytes).
+ 38i,9n,23p,746b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.
+pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on proj.pdf (7 pages, 227005 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
