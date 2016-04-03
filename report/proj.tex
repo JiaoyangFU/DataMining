@@ -178,6 +178,8 @@ Table 1 shows the RMSE and MAE of each applied algorithms.
 
 \section{Discussion and Future Work}
 From table 1 we can see that the baseline which is a mean predictor yields the best result. It is not surprising that collaborative filtering does not work very well with the yelp dataset. As we cited in the data section, the number of users who have reviewed enough restaurants for calculating similarity scores with other users is quite low. Collaborative filtering usually works not well when data are sparse, and has cold start problem for new users and items.
+
+When applying SVD method to the yelp data, we did not minus the global average rating value first, the RMSE result is 1.0568, which indicates the method works not that well comparing to other methods. To improve SVD, we subtracted the global average rating value first to generate the metrics $P$ and $Q$, after generating the predicted matrix, adding the global average rating value to each element. The RMSE result improves to  0.9175. Analyzing this phenomenon, it may note that in the origin matrix of rating between users and restaurants contains too many latent value. Thus, if we do not use global average value to control the latent value, it will badly influence the SVD performance measured by RMSE.
  
  ...
  
