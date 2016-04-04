@@ -302,7 +302,8 @@ We chaned the value of k and compared the result of item-based prediction with u
 \subsection{SVD}
 According to the training set, we use SVD method to generate two matrices $P$ and $Q$ which represent User matrix and Restaurant matrix respectively. We choose the decreased dimension $K-factors = 20$, and regularization $\lambda = 0.01$. Then we use these two matrices $P$ and $Q$ to form a predicted matrix. Then we use the testing set to measure how well SVD works by RMSE and MAE method.
 
-The performance of our SVD is $RMSE = 0.9175 $, $MAE = 0.8403$.
+When applying SVD method to the yelp data, at first we did not minus the global average rating value, the RMSE result is 1.0568, which indicates the method works not that well comparing to other methods. To improve SVD, we subtracted the global average rating value first to generate the metrics $P$ and $Q$, after generating the predicted matrix, adding the global average rating value to each element. The RMSE result improves to  0.9175. Analyzing this phenomenon, it may note that in the origin matrix of rating between users and restaurants contains too many latent value. Thus, if we do not use global average value to control the latent value, it will badly influence the SVD performance measured by RMSE.
+
 \subsection{Comparison}
 Table 1 shows the RMSE and MAE of each applied algorithms.
 \begin{table}
@@ -324,7 +325,7 @@ Table 1 shows the RMSE and MAE of each applied algorithms.
 \section{Discussion and Future Work}
 From table 1 we can see that the baseline which is a mean predictor yields the best result. It is not surprising that collaborative filtering does not work very well with the yelp dataset. As we cited in the data section, the number of users who have reviewed enough restaurants for calculating similarity scores with other users is quite low. Collaborative filtering usually works not well when data are sparse, and has cold start problem for new users and items.
 
-When applying SVD method to the yelp data, we did not minus the global average rating value first, the RMSE result is 1.0568, which indicates the method works not that well comparing to other methods. To improve SVD, we subtracted the global average rating value first to generate the metrics $P$ and $Q$, after generating the predicted matrix, adding the global average rating value to each element. The RMSE result improves to  0.9175. Analyzing this phenomenon, it may note that in the origin matrix of rating between users and restaurants contains too many latent value. Thus, if we do not use global average value to control the latent value, it will badly influence the SVD performance measured by RMSE.
+For the SVD, several parameters can influence the performance, such as decreased dimension, and regularization. As we know, for a fixed number of samples the best number of features would be some intermediate value rather than the smallest or biggest which is the peak phenomenon. For our project, we can adjust the regularization and learning rate parameters, changing the number of features under each pairwise, finally choose the best parameters with lowest error. This may help to improve SVD accuracy.
  
  In the future work, we would consider the classification of restaurants and apply our approaches based on the classification. Another method is to analyze the review text which is provided in the review json file and use this information to create comprehensive user and restaurant profiles. Also, we would explore further hybrid approaches and evaluate their performances.
 
