@@ -192,7 +192,7 @@ We also add a regularization to avoid overfitting to our training set.
 \argmin_{P,Q}\sum_{(i,j)\in{R}}{(R_{ij} - \mu - P_iQ_{j}^{T})}^2 + \lambda({\left\|P_i\right\|}^2 + {\left\|Q_j\right\|}^2 )
 \end{equation}
 
-In order to find optimum matrices for $P$ and $Q$, we implement the alternating least squares method as described by Cichocki and Zhou\cite{abc},\cite{zhou}.
+In order to find optimum matrices for $P$ and $Q$, we implement the alternating least squares method as described by Cichocki and Zhou\cite{Andrzej},\cite{Yunhong}.
 
 After obtaining the predicted rating by matrices $P$ and $Q$ via SVD, add the global mean back to each predicted rating. We take $k$ as 20 and $\lambda$ as 0.01.
 
