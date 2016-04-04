@@ -227,7 +227,7 @@ The performance of our baseline predictor is $RMSE = 0.9014 $, $MAE = 0.8397$.
 \subsection{User-User CF and Item-Item CF}
 By using the preprocessed training data and testing data, joined dataframe, prediction formula and similarity formula, we did four experiments to see the performance of each method under given conditions.   
 
-\subsubsection{User-based CF with Consine Similarity on Whole Data}
+\subsubsection{User-based CF with Cosine Similarity on Whole Data}
 In this experiment, we used the resubstitution method which trained on all data and test on the same data set. Cosine similarity was used to measure similarities. 
 
 \begin{figure}
@@ -247,7 +247,7 @@ In this experiment, we used the resubstitution method which trained on all data 
 
 K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 3 and figure 4 that both RMSE(greater than 3.8) and MAE value (about 1.95) are very high when k is 20. But with the increasing of k, both RMSE and MAE decrease quickly. This is because when more meaningful similar users are taking into consideration when calculating  ratings, the accuracy thus is improved. 
 
-\subsubsection{User-based CF with Consine Similarity on Divided Data}
+\subsubsection{User-based CF with Cosine Similarity on Divided Data}
 In this experiment, we used holdout method which train on 80\% data and predicated ratings for users in the extracted 20\% testing data. Also cosine similarity was used to measure similarity. We can see from figure 5 and figure 6 that when k is 20,both RMSE and MAE reach their lowest value respectively.when k is lower than 20 or larger than 20, both RMSE and MAE increases. This is because if too many users with low similarity to current user are considered, the accuracy is negatively affected. Also, if not enough users with high similarity to current user are chosen, the accuracy cannot achieve the best. 
 
 \begin{figure}
