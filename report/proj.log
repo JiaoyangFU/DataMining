@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.15)  4 APR 2016 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.15)  4 APR 2016 17:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -405,14 +405,8 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [3 <./fig1.png> <./fig2.png>] [4] [5]
-
-LaTeX Warning: Citation `abc' on page 6 undefined on input line 195.
-
-
-LaTeX Warning: Citation `zhou' on page 6 undefined on input line 195.
-
-[6] <RMSE1.png, id=41, 578.16pt x 433.62pt>
+ [3 <./fig1.png> <./fig2.png>] [4] [5] [6] <RMSE1.png, id=41, 578.16pt x 433.62
+pt>
 File: RMSE1.png Graphic file (type png)
  <use RMSE1.png>
 Package pdftex.def Info: RMSE1.png used on input line 236.
@@ -467,10 +461,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3132 strings out of 494501
- 44253 string characters out of 6167029
- 113810 words of memory out of 5000000
- 6367 multiletter control sequences out of 15000+600000
+ 3131 strings out of 494501
+ 44249 string characters out of 6167029
+ 113813 words of memory out of 5000000
+ 6366 multiletter control sequences out of 15000+600000
  9406 words of font info for 34 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  38i,9n,23p,730b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -490,7 +484,7 @@ fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015basic/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015basic/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015basic/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on proj.pdf (11 pages, 430779 bytes).
+Output written on proj.pdf (11 pages, 430710 bytes).
 PDF statistics:
  119 PDF objects out of 1000 (max. 8388607)
  72 compressed objects within 1 object stream
