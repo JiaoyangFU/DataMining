@@ -64,11 +64,15 @@ Based on Yelp Data Challenge dataset, we aim to develop a predictive personalize
 \end{abstract}
 
 \section{Introduction}
-With rapid development of advanced technology, people nowadays can achieve the things that they desired faster and more effectively than ever. While, at the same time, the requirements for accurate, personalized and convenient services are increasing. Fortunately, Yelp contributes to providing reasonable recommendations of various businesses to users, e.g., restaurants.
+With rapid development of advanced technology, people nowadays can achieve the things that they desired faster and more effectively than ever by recommendations. The recommendation system is now widely used in various of applications, such as movies, books, musics and web pages. Despite of the vast amount of application, the requirements for accurate, personalized and convenient services are increasing. 
 
-Yelp collected review dataset which records how well each user rates for limited amount of restaurants. Based on these review history, it suggests favored restaurants to users. The problem is that Yelp seems to offer similar recommendations that are popular for various users. In fact, people may have diverse preferences to food. For instance, some users may prefer Asian food, while others may favor Mexican food. In fact, yelp did not consider these factors too much. Therefore, it seems still have some room to improve the recommendation system in the personalization aspect.
+More than ever before, people’s decisions of where to visit or what to eat are subject to other people’s opinions. Yelp is a popular crowd-sourced local business reviews and social networking platform making it become an important reference for making consumer decision. For each individual business, users can submit a review on their products or services using a one to five star rating system as well as text comments.
 
-Collaborative filtering, a method making predictions based on a large dataset used by some recommendation system like Yelp, Amazon, and Netflix. It automatically predict about the interests of a user by collecting preference or tastes information from other users. Furthermore, there are numerous collaborative filtering methods, such as baseline, K- nearest neighbor, and matrix decomposition. This paper aims to compare how accurate each methods applying on Yelp Data Challenge through using Root metric Mean Squared Error(RMSE) and Mean Absolute Error(MAE).
+Collaborative filtering, a method of making predictions based on a large dataset is used by many recommendation system like Yelp, Amazon, and Netflix. It automatically predict about the interests of a user by collecting preference or tastes information from other users. Furthermore, there are numerous collaborative filtering methods, such as user-based CF, item-based CF, and matrix decomposition. 
+
+Through this project we utilized Yelp’s data to make personalized business recommendations for Yelp users by predicting the rating that a given user would give to a specific business.
+
+In section 2 we introduce the related work about recommendation systems incuding the methods they used and their related results. Contents from section 3 to the final part are about our own work. We begin by describing the dataset used to predict ratings. We then elaborate on the different models used to predict the rating that a user would assign to a business. This is followed by a description of the evaluation metric and implementation. Finally, we conclude with our results, discussion and talk briefly about future direction.
 
 \section{Literature Review}
 There are generally three types of recommendation systems: content-based filtering, collaborative filtering and hybrid approaches. Content-based recommendation systems work with users’ profile and items’ characteristics. The feature used to build profiles are often a set of keywords. For example, a music recommendation system\cite{MJ} implemented with content-based filtering, each song is assigned an attribute manually. If a user’s profile shows interests in songs with particular attributes, similar songs will be recommended to the user. The limitations of these systems is that it always recommends similar items to user that he has already purchased and it’s difficult to recommend items for new users. 
@@ -131,21 +135,30 @@ In order to eliminate the differences in users's use of the rating scale, subtra
 
 
 
-\subsubsection{Computing User Similarity}
-An critical parameter used to calculate predications is similarity function.Among many proposed similarity functions we only choose Cosine Similarity to give a detailed introduction. 
+\subsubsection{Measure of Similarity}
+An critical parameter used to calculate predications is similarity function. The most common and typically measurement are the cosine similarity and Pearson similarity. 
 
-In Cosine Similarity model, users are represented as $|\textit{I}|$-dimensional vectors of rating on $|\textit{I}|$ items.Similarity is measured by the cosine distance between two rating vectors. The formula is given below indicating how to calculate the Cosine Similarity between user $u$ and $v$. 
+In Cosine Similarity model, users are represented as $|\textit{I}|$-dimensional vectors of rating on $|\textit{I}|$ items. Similarity is measured by the cosine distance between two rating vectors. The formula is given below indicating how to calculate the Cosine Similarity between user $u$ and $v$. 
 \begin{equation}
 s(u,v) = \frac{r_{u}\cdot r_{v}}{\norm {r_{u}}_{2} \norm {r_{v}}_{2}}=\frac{\sum\nolimits_{i} r_{u,i}r_{v,i}}{\sqrt{\sum\nolimits_{i} {r^{2}_{u,i}}} \sqrt{\sum\nolimits_{i} {r^{2}_{v,i}}}} 
 \end{equation}
 
 Unknown ratings are considered to be 0. $r_{u}$ is rating vector of user $u$. $\norm {r_{u}}_{2}$ is the Euclidean norm of rating vector $r_{u}$.
 
-\subsection{Item-Item Collaborative Filtering}
-\textit{Item-Item Collaborative Filtering} uses similarity between the rating patterns of items.If two items tend to have the same users like and dislike them,then they are similar and users are expected to have similar preferences for similar items.
+Unlike cosine similarity, the Pearson correlation is a measure of how well two sets of data fit on a straight line. It is slightly more sophisticated way to determine the similarity between users. A Pearson Correlation Coefficient of 1 indicates that the two users are perfectly correlated but in this case, a score of -1 means that the they are not correlated.
 
-\subsubsection{Computing Predictions}
-To generate predictions or recommendations for user $u$ on item $i$, item-item CF firstly determine a set S of items most similar to $i$. Then computing the weighted average of the user's rating on item $j$ from set S. The formula is given as below:
+In our Pearson Correlation model, it computes the statistical correlation between two user's common ratings to determine their similarity. The formula is given below indicating how to calculate the Pearson Similarity between user $u$ and $v$. 
+
+\begin{equation}
+	s(u,v) =\frac{{\sum\nolimits_{i \in {I_{u} \cap I_{v}}}(r_{u,i}-\bar{r}_{u})(r_{v,i}-\bar{r}_{v})}}{ \sqrt{{\sum\nolimits_{i \in {I_{u} \cap I_{v}}}(r_{u,i}-\bar{r}_{u})^2}} \sqrt{{\sum\nolimits_{i \in {I_{u} \cap I_{v}}}(r_{v,i}-\bar{r}_{v})^2}}}
+\end{equation}
+
+The parameter $I_{u}$ is a set of items rated by user $u$. Parameter ${\bar r_{u}}$ is average rating on all items rated by user $u$.The parameter $r_{u,i}$ indicates the rating of user $u$ on item i.
+
+\subsection{Item-Item Collaborative Filtering}
+\textit{Item-Item Collaborative Filtering} is similar to User-User CF, it uses similarity between the rating patterns of items. If two items tend to have the same users like and dislike them,then they are similar and users are expected to have similar preferences for similar items.
+
+To generate predictions or recommendations for user $u$ on item $i$, item-item CF firstly determine a set S of items most similar to $i$. Then we extracted k nearest neighbors of item i computing the weighted average of the user's rating on item $j$ from set S. The formula is given as below:
 
 \begin{equation}
 p_{u,i} =\frac
@@ -154,14 +167,9 @@ p_{u,i} =\frac
 \end{equation}
 
 The parameter $p_{u,i}$ is predicated rating on item i for user $u$. $S$ is a set of items most similar to item $i$. $s(i,j)$ is the similarity between item $i$ and $j$. $r_{u,j}$ is the rating of user $u$ on item $i$.
-\subsubsection{Computing Item Similarity}
-As in user-user collaborative filtering, a variety of methods can be used for computing item similarity. In this section, we focus on Cosine Similarity, the most popular similarity metric, as it is simple, fast, and produces good predictive accuracy. 
 
-\begin{equation}
-s(i,j) = \frac{r_{i}\cdot r_{j}}{\norm {r_{i}}_{2} \norm {r_{j}}_{2}}
-\end{equation}
+For item-item CF, we choose the Peason correlation to measure similarities. 
 
-Unknown ratings are considered to be 0. $r_{i}$ is rating vector of item $i$. $\norm {r_{i}}_{2}$ is the Euclidean norm of rating vector $r_{i}$.
 
 \subsection{Singular Value Decomposition}
 Singular Value Decomposition(SVD) is a latent factor method which popularly applied in Netflix Prize competition. A matrix can be approximated with SVD by multiplying two generated feature matrices $P$ and $Q$ with rank $k$.
@@ -219,8 +227,8 @@ The performance of our baseline predictor is $RMSE = 0.9014 $, $MAE = 0.8397$.
 \subsection{User-User CF and Item-Item CF}
 By using the preprocessed training data and testing data, joined dataframe, prediction formula and similarity formula, we did four experiments to see the performance of each method under given conditions.   
 
-\subsubsection{User-based CF-Experiment 1}
-In this experiment, we used all training data and tried to predicate rating for each user on each item. Also cosine similarity was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+\subsubsection{User-based CF with Consine Similarity on Whole Data}
+In this experiment, we used the resubstitution method which trained on all data and test on the same data set. Cosine similarity was used to measure similarities. 
 
 \begin{figure}
 	\begin{minipage}[t]{0.5\textwidth}
@@ -237,10 +245,10 @@ In this experiment, we used all training data and tried to predicate rating for 
 	\end{minipage}
 \end{figure}
 
-K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 3 and figure 4 that both RMSE and MAE value is very high(larger than 1.0) when k is 20. But with the increasing of k, both RMSE and MAE decrease quickly. This is because when more meaningful similar users are taking into consideration when calculating  ratings, the accuracy thus is improved. 
+K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 3 and figure 4 that both RMSE(greater than 3.8) and MAE value (about 1.95) are very high when k is 20. But with the increasing of k, both RMSE and MAE decrease quickly. This is because when more meaningful similar users are taking into consideration when calculating  ratings, the accuracy thus is improved. 
 
-\subsubsection{User-based CF-Experiment 2}
-In this experiment, we predicated ratings for users in the extracted 20\% testing data. Also cosine similarity was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+\subsubsection{User-based CF with Consine Similarity on Divided Data}
+In this experiment, we used holdout method which train on 80\% data and predicated ratings for users in the extracted 20\% testing data. Also cosine similarity was used to measure similarity. We can see from figure 5 and figure 6 that when k is 20,both RMSE and MAE reach their lowest value respectively.when k is lower than 20 or larger than 20, both RMSE and MAE increases. This is because if too many users with low similarity to current user are considered, the accuracy is negatively affected. Also, if not enough users with high similarity to current user are chosen, the accuracy cannot achieve the best. 
 
 \begin{figure}
 	\begin{minipage}[t]{0.5\textwidth}
@@ -256,11 +264,10 @@ In this experiment, we predicated ratings for users in the extracted 20\% testin
 		\label{fig:side:b}
 	\end{minipage}
 \end{figure}
+ 
 
-K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 5 and figure 6 that when k is 20,both RMSE and MAE reach their lowest value respectively.when k is lower than 20 or larger than 20, both RMSE and MAE increases. This is because if too many users with low similarity to current user are considered, the accuracy is negatively affected. Also, if not enough users with high similarity to current user are chosen, the accuracy cannot achieve the best.  
-
-\subsubsection{User-based CF-Experiment 3}
-In this experiment, we predicated ratings for users in the extracted 20\% testing data. Pearson correlation was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+\subsubsection{User-based CF with Pearson Similarity on Divided Data}
+We used Pearson correlation instead of consine distance to measure similarities. Figure 7 and figure 8 shows that when k is in the range of 5 to 50, both RMSE and MAE value decrease dramatically with the increasing of k. After 50, with the increasing of k,both both RMSE and MAE value decrease slowly. This is because the similarity whose ranking behind  50 has lower effect on the predicted ratings.
 
 \begin{figure}
 	\begin{minipage}[t]{0.5\textwidth}
@@ -277,10 +284,9 @@ In this experiment, we predicated ratings for users in the extracted 20\% testin
 	\end{minipage}
 \end{figure}
 
-K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 7 and figure 8 that when k is in the range of 5 to 50, both RMSE and MAE value decrease dramatically with the increasing of k. After 50, with the increasing of k,both both RMSE and MAE value decrease slowly. This is because the similarity whose ranking behind  50 has lower effect on the predicted ratings.
 
-\subsubsection{Item-based CF-Experiment 4}
-In this experiment, we predicated ratings for users in the extracted 20\% testing data. Pearson correlation was used to measure similarity. Both RMSE and MAE was used to measure differences between predicated values and true values.
+\subsubsection{Item-based CF with Pearson Similarity on Divided Data}
+In this experiment, we applied the item-based CF to find the the k nearest neighbours of each restaurant. The similarity between items were measured by pearson correlation.  
 
 \begin{figure}
 	\centering
@@ -291,7 +297,7 @@ In this experiment, we predicated ratings for users in the extracted 20\% testin
 	\end{minipage}
 \end{figure}
 
-K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. When comparing the result of item based prediction and user based prediction, we can see under the same given conditions user based prediction surpasses item based prediction. This is because pearson correlation is more suitable for calculating similarity for user based prediction. 
+We chaned the value of k and compared the result of item-based prediction with user-based prediction, we can see from figure 9 that under the same given conditions, user-based prediction surpasses item-based prediction. This is because pearson correlation is more suitable for calculating similarity for user based prediction. 
 
 \subsection{SVD}
 According to the training set, we use SVD method to generate two matrices $P$ and $Q$ which represent User matrix and Restaurant matrix respectively. We choose the decreased dimension $K-factors = 20$, and regularization $\lambda = 0.01$. Then we use these two matrices $P$ and $Q$ to form a predicted matrix. Then we use the testing set to measure how well SVD works by RMSE and MAE method.
@@ -319,8 +325,6 @@ Table 1 shows the RMSE and MAE of each applied algorithms.
 From table 1 we can see that the baseline which is a mean predictor yields the best result. It is not surprising that collaborative filtering does not work very well with the yelp dataset. As we cited in the data section, the number of users who have reviewed enough restaurants for calculating similarity scores with other users is quite low. Collaborative filtering usually works not well when data are sparse, and has cold start problem for new users and items.
 
 When applying SVD method to the yelp data, we did not minus the global average rating value first, the RMSE result is 1.0568, which indicates the method works not that well comparing to other methods. To improve SVD, we subtracted the global average rating value first to generate the metrics $P$ and $Q$, after generating the predicted matrix, adding the global average rating value to each element. The RMSE result improves to  0.9175. Analyzing this phenomenon, it may note that in the origin matrix of rating between users and restaurants contains too many latent value. Thus, if we do not use global average value to control the latent value, it will badly influence the SVD performance measured by RMSE.
- 
- ...
  
  In the future work, we would like to analyze the review text which is provided in the review json file and use this information to create comprehensive user and restaurant profiles. Also, we would explore further hybrid approaches and evaluate their performances.
 

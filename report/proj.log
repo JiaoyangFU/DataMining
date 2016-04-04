@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.15)  3 APR 2016 19:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.15)  3 APR 2016 21:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -259,7 +259,29 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_intertext_sep=\dimen142
 \l_MT_above_shortintertext_sep=\dimen143
 \l_MT_below_shortintertext_sep=\dimen144
-) (./proj.aux)
+) (./proj.aux
+
+LaTeX Warning: Label `fig:side:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:side:a' multiply defined.
+
+)
 \openout1 = `proj.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
@@ -274,8 +296,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
-
-(/usr/local/texlive/2015basic/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/local/texlive/2015basic/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count133
 \scratchdimen=\dimen145
@@ -347,9 +368,6 @@ Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
  [1
 
 
@@ -357,6 +375,18 @@ Missing character: There is no ô in font cmr10!
 {/usr/local/texlive/2015basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -368,7 +398,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Overfull \hbox (6.96048pt too wide) in paragraph at lines 81--82
+Overfull \hbox (6.96048pt too wide) in paragraph at lines 85--86
 \OT1/cmr/m/n/10 We col-lect our data from Yelp rec-om-men-da-tion Kag-gle com-p
 e-ti-tion[4],This dataset
  []
@@ -385,32 +415,30 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
-<fig1.png, id=11, 578.16pt x 433.62pt>
+[2] <fig1.png, id=14, 578.16pt x 433.62pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 91.
+Package pdftex.def Info: fig1.png used on input line 95.
 (pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
 
-<fig2.png, id=13, 578.16pt x 433.62pt>
+<fig2.png, id=16, 578.16pt x 433.62pt>
 File: fig2.png Graphic file (type png)
  <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 97.
+Package pdftex.def Info: fig2.png used on input line 101.
 (pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
- [2]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [3 <./fig1.png> <./fig2.png>] [4]
+ [3 <./fig1.png> <./fig2.png>] [4] [5]
 
-LaTeX Warning: Citation `abc' on page 5 undefined on input line 187.
+LaTeX Warning: Citation `abc' on page 6 undefined on input line 195.
 
 
-LaTeX Warning: Citation `zhou' on page 5 undefined on input line 187.
+LaTeX Warning: Citation `zhou' on page 6 undefined on input line 195.
 
-[5]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -435,156 +463,88 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
- [6]
+[6] <RMSE1.png, id=41, 578.16pt x 433.62pt>
+File: RMSE1.png Graphic file (type png)
+ <use RMSE1.png>
+Package pdftex.def Info: RMSE1.png used on input line 236.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
 
-LaTeX Warning: File `RMSE1.png' not found on input line 228.
+<MAE1.png, id=42, 578.16pt x 433.62pt>
+File: MAE1.png Graphic file (type png)
+ <use MAE1.png>
+Package pdftex.def Info: MAE1.png used on input line 242.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+ [7]
+<RMSE2.png, id=47, 578.16pt x 433.62pt>
+File: RMSE2.png Graphic file (type png)
+ <use RMSE2.png>
+Package pdftex.def Info: RMSE2.png used on input line 256.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
 
+<MAE2.png, id=48, 578.16pt x 433.62pt>
+File: MAE2.png Graphic file (type png)
+ <use MAE2.png>
+Package pdftex.def Info: MAE2.png used on input line 262.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
 
-! Package pdftex.def Error: File `RMSE1.png' not found.
+Underfull \vbox (badness 1342) has occurred while \output is active []
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.228 		\includegraphics[width=2.2in]{RMSE1.png}
-                                                
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+ [8 <./RMSE1.png> <./MAE1.png> <./RMSE2.png> <./MAE2.png>]
+<RMSE3.png, id=56, 578.16pt x 433.62pt>
+File: RMSE3.png Graphic file (type png)
+ <use RMSE3.png>
+Package pdftex.def Info: RMSE3.png used on input line 275.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
 
+<MAE3.png, id=57, 578.16pt x 433.62pt>
+File: MAE3.png Graphic file (type png)
+ <use MAE3.png>
+Package pdftex.def Info: MAE3.png used on input line 281.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
 
-LaTeX Warning: File `MAE1.png' not found on input line 234.
+<twoPearsonMethods.png, id=58, 578.16pt x 433.62pt>
+File: twoPearsonMethods.png Graphic file (type png)
 
-
-! Package pdftex.def Error: File `MAE1.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.234 		\includegraphics[width=2.2in]{MAE1.png}
-                                               
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `RMSE2.png' not found on input line 248.
-
-
-! Package pdftex.def Error: File `RMSE2.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.248 		\includegraphics[width=2.2in]{RMSE2.png}
-                                                
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `MAE2.png' not found on input line 254.
-
-
-! Package pdftex.def Error: File `MAE2.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.254 		\includegraphics[width=2.2in]{MAE2.png}
-                                               
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `RMSE3.png' not found on input line 268.
-
-
-! Package pdftex.def Error: File `RMSE3.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.268 		\includegraphics[width=2.2in]{RMSE3.png}
-                                                
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `MAE3.png' not found on input line 274.
-
-
-! Package pdftex.def Error: File `MAE3.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.274 		\includegraphics[width=2.2in]{MAE3.png}
-                                               
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[7] [8]
-
-LaTeX Warning: File `twoPearsonMethods.png' not found on input line 288.
-
-
-! Package pdftex.def Error: File `twoPearsonMethods.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.288 ...phics[width=2.2in]{twoPearsonMethods.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[9] [10]
+<use twoPearsonMethods.png>
+Package pdftex.def Info: twoPearsonMethods.png used on input line 294.
+(pdftex.def)             Requested size: 158.99377pt x 119.24255pt.
+ [9 <./RMSE3.png> <./MAE3.png> <./twoPearsonMethods.png>] [10]
 Missing character: There is no ‚ in font cmr9!
 Missing character: There is no Ä in font cmr9!
 Missing character: There is no ì in font cmr9!
  [11] (./proj.aux)
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3104 strings out of 494501
- 43804 string characters out of 6167029
- 113771 words of memory out of 5000000
- 6339 multiletter control sequences out of 15000+600000
+ 3132 strings out of 494501
+ 44253 string characters out of 6167029
+ 113810 words of memory out of 5000000
+ 6367 multiletter control sequences out of 15000+600000
  9406 words of font info for 34 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 38i,9n,23p,734b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,9n,23p,734b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mbx12.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx9.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmex10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmmi10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015basic/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015basic/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015basic/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015basic/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on proj.pdf (11 pages, 240120 bytes).
+c/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015basic/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015basic/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015basic/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015basic/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015basic/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on proj.pdf (11 pages, 430099 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
