@@ -297,7 +297,7 @@ In this experiment, we applied the item-based CF to find the the k nearest neigh
 	\end{minipage}
 \end{figure}
 
-We chaned the value of k and compared the result of item-based prediction with user-based prediction, we can see from figure 9 that under the same given conditions, user-based prediction surpasses item-based prediction. This is because pearson correlation is more suitable for calculating similarity for user based prediction. 
+We changed the value of k and compared the result of item-based prediction with user-based prediction, we can see from figure 9 that under the same given conditions, user-based prediction surpasses item-based prediction. This is because pearson correlation is more suitable for calculating similarity for user based prediction. 
 
 \subsection{SVD}
 According to the training set, we use SVD method to generate two matrices $P$ and $Q$ which represent User matrix and Restaurant matrix respectively. We choose the decreased dimension $K-factors = 20$, and regularization $\lambda = 0.01$. Then we use these two matrices $P$ and $Q$ to form a predicted matrix. Then we use the testing set to measure how well SVD works by RMSE and MAE method.
