@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 APR 2016 20:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 APR 2016 20:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -372,6 +372,9 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
 
 Overfull \hbox (6.96048pt too wide) in paragraph at lines 85--86
 \OT1/cmr/m/n/10 We col-lect our data from Yelp rec-om-men-da-tion Kag-gle com-p
@@ -463,7 +466,7 @@ Here is how much of TeX's memory you used:
  6570 multiletter control sequences out of 15000+600000
  9406 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,9n,23p,730b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,9n,23p,793b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -479,7 +482,7 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on proj.pdf (11 pages, 430748 bytes).
+Output written on proj.pdf (11 pages, 431015 bytes).
 PDF statistics:
  119 PDF objects out of 1000 (max. 8388607)
  72 compressed objects within 1 object stream
