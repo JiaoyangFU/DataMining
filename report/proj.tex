@@ -106,7 +106,7 @@ Because many users only review a few restaurants, our dataset yields a sparsity 
 
 \subsection{Training and Testing sets}
 %
-In order to evaluate the performance of our recommendation system, we divided our data into training and testing datasets. We extract a list of all restaurants each user has rated, take 80\% of this list as training set and 20\% as test set. 
+In order to evaluate the performance of our recommendation system, we divided our data into training and testing datasets. We extract a list of all restaurants for which each user has rated, take 80\% of this list as training set and remaining 20\% as test set. 
 
 \section{Methods}
 \subsection{Baseline}
@@ -119,11 +119,11 @@ Here $\mu$ is the mean rating of reviews of all business by all users. The param
 
 
 \subsection{User-User Collaborative Filtering}
-\textit{User-user collaborative filtering}, also know as \textit{k-NN collaborative},was the first of the automated CF methods. It find other users whose past rating behavior is similar to that of current user and
-use their ratings on that item to predict what the current user will like. To predict Mary's preference for an item she has not rated, user-User CF looks for other users who have high agreement with Mary on the items they have both rated.These users’ ratings for the item in question are then weighted by their level of agreement with Mary’s ratings to predict Mary's rating on that item. 
+\textit{User-user collaborative filtering}, also know as \textit{k-NN collaborative},was the first of the automated CF methods. It finds other users whose past rating behavior is similar to that of current user and
+use their ratings on that item to predict what the current user will like. To predict Mary's preference for an item she has not rated, user-user CF looks for other users who have high agreement with Mary on the items they have both rated.These users’ ratings for the item in question are then weighted by their level of agreement with Mary's ratings to predict Mary's rating on that item. 
 
 \subsubsection{Computing Predictions}
-To compute predictions or recommendations for a user u, user-user CF firstly needs to determine the number N of neighbors will be used to generate the result. Then computing the weighted average of the chosen neighboring users' rating i by using similarity as weights. The formula is given as below:
+To compute predictions or recommendations for a user $u$, user-user CF firstly needs to determine the number N of neighbors who will be used to generate the result. Then computing the weighted average of the chosen neighboring users' rating i by using similarity as weights. The formula is given as below:
 
 \begin{equation}
 p_{u,i} ={\bar r_{u}}  + \frac
@@ -131,12 +131,12 @@ p_{u,i} ={\bar r_{u}}  + \frac
 {\sum\nolimits_{u' \in N} |s(u,u')|}
 \end{equation}
 
-In order to eliminate the differences in users's use of the rating scale, subtracting the user's mean rating ${\bar r_{u'}}$ to compensate is necessary.   The parameter $p_{u,i}$ is predicated rating on item i for user $u$.  ${\bar r_{u'}}$ is average rating on all items rated by user $u$.The parameter $r_{u',i}$ indicates the rating of user $u'$ on item i.$s(u,u')$ is similarity between user u and $u'$. N is the number of neighbors chosen for user $u$.  
+In order to eliminate the differences in users's use of the rating scale, subtracting the user's mean rating ${\bar r_{u'}}$ to compensate is necessary.   The parameter $p_{u,i}$ is predicated rating on item $i$ for user $u$.  ${\bar r_{u'}}$ is average rating on all items rated by user $u$.The parameter $r_{u',i}$ indicates the rating of user $u'$ on item $i$.$s(u,u')$ is similarity between user $u$ and $u'$. N is the number of neighbors chosen for user $u$.  
 
 
 
 \subsubsection{Measure of Similarity}
-An critical parameter used to calculate predications is similarity function. The most common and typically measurement are the cosine similarity and Pearson similarity. 
+An critical parameter used to calculate predications is similarity function. The most common and typical measurement are the Cosine Similarity and Pearson Correlation. 
 
 In Cosine Similarity model, users are represented as $|\textit{I}|$-dimensional vectors of rating on $|\textit{I}|$ items. Similarity is measured by the cosine distance between two rating vectors. The formula is given below indicating how to calculate the Cosine Similarity between user $u$ and $v$. 
 \begin{equation}
@@ -145,7 +145,7 @@ s(u,v) = \frac{r_{u}\cdot r_{v}}{\norm {r_{u}}_{2} \norm {r_{v}}_{2}}=\frac{\sum
 
 Unknown ratings are considered to be 0. $r_{u}$ is rating vector of user $u$. $\norm {r_{u}}_{2}$ is the Euclidean norm of rating vector $r_{u}$.
 
-Unlike cosine similarity, the Pearson correlation is a measure of how well two sets of data fit on a straight line. It is slightly more sophisticated way to determine the similarity between users. A Pearson Correlation Coefficient of 1 indicates that the two users are perfectly correlated but in this case, a score of -1 means that the they are not correlated.
+Unlike Cosine Similarity, the Pearson Correlation is a measure of how well two sets of data fit on a straight line. It is slightly more sophisticated way to determine the similarity between users. A Pearson Correlation Coefficient of 1 indicates that the two users are perfectly correlated but in this case, a score of -1 means that the they are not correlated.
 
 In our Pearson Correlation model, it computes the statistical correlation between two user's common ratings to determine their similarity. The formula is given below indicating how to calculate the Pearson Similarity between user $u$ and $v$. 
 
@@ -166,9 +166,9 @@ p_{u,i} =\frac
 {\sum\nolimits_{j \in S} |s(i,j)|}
 \end{equation}
 
-The parameter $p_{u,i}$ is predicated rating on item i for user $u$. $S$ is a set of items most similar to item $i$. $s(i,j)$ is the similarity between item $i$ and $j$. $r_{u,j}$ is the rating of user $u$ on item $i$.
+The parameter $p_{u,i}$ is predicated rating on item $i$ for user $u$. $S$ is a set of items most similar to item $i$. $s(i,j)$ is the similarity between item $i$ and $j$. $r_{u,j}$ is the rating of user $u$ on item $i$.
 
-For item-item CF, we choose the Peason correlation to measure similarities. 
+For item-item CF, we choose the Pearson Correlation to measure similarity. 
 
 
 \subsection{Singular Value Decomposition}
@@ -176,7 +176,7 @@ Singular Value Decomposition(SVD) is a latent factor method which popularly appl
 \begin{equation}
 \hat{R_{ij}} = P_iQ_{j}^{T}
 \end{equation}
-In this paper, the matrix $R$ is a ratings matrix with rows representing all the users, and columns representing businesses. For example $R_{ij}$ represents the rating from user $i$ to restaurant $j$. Then, minimizing the squared differences between the rating matrix $R$ and the SVD approximated matrix $\hat{R}$. Thus, projecting user and restaurants rating matrix into two lower dimension feature matrices $P$ as user feature matrix and $Q$ as restaurant matrix. In order to improve the SVD prediction accuracy, subtract the global average rating, $\mu$.
+In this paper, the matrix $R$ is a ratings matrix with rows representing all the users, and columns representing businesses. For example $R_{ij}$ represents the rating from user $i$ to restaurant $j$. Then, minimizing the squared differences between the rating matrix $R$ and the SVD approximated matrix $\hat{R}$. Thus, projecting user and restaurants rating matrix into two lower dimension feature matrices $P$ as user feature matrix and $Q$ as restaurant matrix. In order to improve the SVD prediction accuracy, subtracting the global average rating, $\mu$.
 
 \begin{equation}
 \hat{R_{ij}} = P_iQ_{j}^{T} + \mu
@@ -194,7 +194,7 @@ We also add a regularization to avoid overfitting to our training set.
 
 In order to find optimum matrices for $P$ and $Q$, we implement the alternating least squares method as described by Cichocki and Zhou\cite{Andrzej},\cite{Yunhong}.
 
-After obtaining the predicted rating by matrices $P$ and $Q$ via SVD, add the global mean back to each predicted rating. We take $k$ as 20 and $\lambda$ as 0.01.
+After obtaining the predicted rating by matrices $P$ and $Q$ via SVD, adding the global mean back to each predicted rating. We take $k$ as 20 and $\lambda$ as 0.01.
 
 \section{Experiments and Results}
 %
@@ -212,11 +212,11 @@ Here $r'_{u,i}$ is the predicted rating from user $u$ on item $i$ and $r_{u,i}$ 
 \subsubsection{Program Structure}
 Our work was implemented by Python. We have seven python files in total. They are main, loadData, Baseline, User-based CF, Item-based CF, SVD and Evaluation. The main program is the controller of the whole recommendation system. At first, it invoked the loadData file for data parsing. Then it invoked Baseline, User-based CF, Item-based CF and SVD predicting ratings using these four algorithms. Each time the predicted rating and true rating were stored together and the Evaluation program will calculate the RMSE and MAE errors for the predictions. 
 \subsubsection{Data Structure}
-We used Pandas for data processing which is an open source, data analysis library. The original json files were loaded into three dataframe storing information of users, business and reviews respectively. We joined the business and reviews dataframes based on business id and then joined with the users dataframe on user id. After parsing the raw data, we used the key ``Category'' and ``City'' to extract records of ``Restaurants'' and ``Phoenix''. As to reboost sparsity problem, we computed the count of reviews grouped by restaurant id and filtered the restaurants getting rid of the restaurants which had fewer than 50 reviews. 
+We used Pandas for data processing which is an open source, data analysis library. The original json files were loaded into three dataframes storing information of users, business and reviews respectively. We joined the business and reviews dataframes based on business id and then joined with the users dataframe on user id. After parsing the raw data, we used the key ``Category'' and ``City'' to extract records of ``Restaurants'' and ``Phoenix''. As to reboost sparsity problem, we computed the count of reviews grouped by restaurant id and filtered the restaurants getting rid of the restaurants which had fewer than 50 reviews. 
 
-After re-organizing the data, we used dictionary data structure to build the user-item matrix. For each records in the joined dataframe, we extract user as the key, the value of each key is a nested dictionary with business id as key and review rating as value, e.g. $\{user\_id: \{restaurant\_id: rating\}\}$. Meanwhile, we also built another item-user matrix which can be indexed by restaurant id, e.g. $\{restaurant\_id: \{user\_id: rating\}\}$.
+After re-organizing the data, we used dictionary data structure to build the user-item matrix. For each record in the joined dataframe, we extracted user as the key, the value of each key is a nested dictionary with business id as key and review rating as value, e.g. $\{user\_id: \{restaurant\_id: rating\}\}$. Meanwhile, we also built another item-user matrix which can be indexed by restaurant id, e.g. $\{restaurant\_id: \{user\_id: rating\}\}$.
 
-For dividing data into training and testing data, we only consider users with more than 30 reviews. That is for each key in the user-indexed dictionary, if the length of the value set is greater than 30, we took 20\% of the entry out of the set and stored them into the test dictionary. The remaining 80\% became the training data. 
+For dividing data into training and testing data, we only considered users with more than 30 reviews. That is for each key in the user-indexed dictionary, if the length of the value set is greater than 30, we took 20\% of the entry out of the set and stored them into the test dictionary. The remaining 80\% became the training data. 
 
 After this approach, we have 281 restaurants, 13820 users in training set and 91 users in test set.
 \subsection{Baseline}
@@ -248,7 +248,7 @@ In this experiment, we used the resubstitution method which trained on all data 
 K is the number of nearest neighbors chosen for each user when calculating the predicated ratings. we can see from figure 3 and figure 4 that both RMSE(greater than 3.8) and MAE value (about 1.95) are very high when k is 20. But with the increasing of k, both RMSE and MAE decrease quickly. This is because when more meaningful similar users are taking into consideration when calculating  ratings, the accuracy thus is improved. 
 
 \subsubsection{User-based CF with Cosine Similarity on Divided Data}
-In this experiment, we used holdout method which train on 80\% data and predicated ratings for users in the extracted 20\% testing data. Also cosine similarity was used to measure similarity. We can see from figure 5 and figure 6 that when k is 20,both RMSE and MAE reach their lowest value respectively.when k is lower than 20 or larger than 20, both RMSE and MAE increases. This is because if too many users with low similarity to current user are considered, the accuracy is negatively affected. Also, if not enough users with high similarity to current user are chosen, the accuracy cannot achieve the best. 
+In this experiment, we used holdout method which train on 80\% data and predicated ratings for users in the extracted 20\% testing data. Also cosine similarity was used to measure similarity. We can see from figure 5 and figure 6 that when k is 20,both RMSE and MAE reach their lowest value respectively. When k is lower than 20 or larger than 20, both RMSE and MAE increases. This is because if too many users with low similarity to current user are considered, the accuracy is negatively affected. Also, if not enough users with high similarity to current user are chosen, the accuracy cannot achieve the best. 
 
 \begin{figure}
 	\begin{minipage}[t]{0.5\textwidth}
